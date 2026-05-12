@@ -185,9 +185,9 @@ PUBLISHER: Eye To Ad Media (Denver-based digital marketing agency specializing i
     },
     {
       "@type": "ItemList",
-      "name": "Top 12 Attractions On Oahu",
+      "name": "Top 16 Attractions On Oahu",
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 12,
+      "numberOfItems": 16,
       "itemListElement": [
         {"@type":"ListItem","position":1,"name":"Waikiki Beach"},
         {"@type":"ListItem","position":2,"name":"Diamond Head Crater Hike"},
@@ -200,7 +200,11 @@ PUBLISHER: Eye To Ad Media (Denver-based digital marketing agency specializing i
         {"@type":"ListItem","position":9,"name":"Haleiwa Historic Town"},
         {"@type":"ListItem","position":10,"name":"Koko Head Crater Stairs"},
         {"@type":"ListItem","position":11,"name":"Dole Plantation"},
-        {"@type":"ListItem","position":12,"name":"Makapuu Lighthouse Trail"}
+        {"@type":"ListItem","position":12,"name":"Makapuu Lighthouse Trail"},
+        {"@type":"ListItem","position":13,"name":"Manoa Falls"},
+        {"@type":"ListItem","position":14,"name":"Byodo-In Temple"},
+        {"@type":"ListItem","position":15,"name":"Tantalus Lookout (Pu'u Ualaka'a)"},
+        {"@type":"ListItem","position":16,"name":"Iolani Palace"}
       ]
     },
     {
@@ -722,31 +726,243 @@ section{position:relative}
   .attr-card.large,.attr-card.wide,.attr-card.medium,.attr-card.small{grid-column:span 1}
 }
 
-/* Image-replacing CSS-art tiles (no extra assets) */
-.tile-art{
-  width:100%;height:100%;
+/* ============================================================
+   ATTRACTION CARD ART — animated SVG illustrations + photo cards
+   ============================================================ */
+.card-img{position:relative;overflow:hidden}
+.card-img .scene{display:block;width:100%;height:100%;position:absolute;inset:0}
+.card-img img.photo{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.scene-waikiki{background:linear-gradient(180deg,#f4d6a8 0%,#f4a261 35%,#ee6c4d 75%,#e63946 100%)}
+.scene-diamond{background:linear-gradient(180deg,#94d2bd 0%,#e9c46a 60%,#f4a261 100%)}
+.scene-pearl{background:linear-gradient(180deg,#90b8c8 0%,#5a8aa0 60%,#264653 100%)}
+.scene-hanauma{background:linear-gradient(180deg,#0a9396 0%,#005f73 100%)}
+.scene-kualoa{background:linear-gradient(180deg,#2a4a3a 0%,#1a3d2e 60%,#0d2a1e 100%)}
+.scene-northshore{background:linear-gradient(180deg,#7fc8d8 0%,#3a90ad 100%)}
+.scene-pcc{background:linear-gradient(180deg,#5a1a2a 0%,#8c2a3a 50%,#ee6c4d 100%)}
+.scene-lanikai{background:linear-gradient(180deg,#fce5cd 0%,#94d2bd 40%,#0a9396 100%)}
+.scene-haleiwa{background:linear-gradient(180deg,#f4d6a8 0%,#e9c46a 50%,#2a9d8f 100%)}
+.scene-koko{background:linear-gradient(180deg,#3a4a5a 0%,#1a2a3a 100%)}
+.scene-dole{background:linear-gradient(180deg,#e9c46a 0%,#f4d68a 50%,#94d2bd 100%)}
+.scene-makapuu{background:linear-gradient(180deg,#1a3a4a 0%,#0a2a3a 100%)}
+.scene-manoa{background:linear-gradient(180deg,#2d5a3a 0%,#1a3d2a 100%)}
+.scene-byodo{background:linear-gradient(180deg,#264653 0%,#1a3540 100%)}
+.scene-tantalus{background:linear-gradient(180deg,#ff8a5b 0%,#ee6c4d 40%,#5a4070 100%)}
+.scene-iolani{background:linear-gradient(180deg,#e9c46a 0%,#c89438 100%)}
+
+/* Real photo banner */
+.photo-banner{
+  position:relative;
+  width:100%;
+  height:340px;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  margin-bottom:50px;
+  box-shadow:var(--shadow-medium);
+}
+.photo-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .8s ease;
+}
+.photo-banner:hover img{transform:scale(1.04)}
+.photo-banner-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,48,73,.05) 0%,rgba(0,48,73,.55) 100%);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:40px;
+  color:#fff;
+}
+.photo-banner-overlay .script{
+  color:var(--lagoon);
+  font-size:1.6rem;
+  margin-bottom:6px;
+  display:inline-block;
+}
+.photo-banner-overlay h3{
+  color:#fff;
+  font-size:2rem;
+  margin:0;
+  text-shadow:0 2px 14px rgba(0,0,0,.4);
+  max-width:600px;
+}
+@media (max-width:680px){
+  .photo-banner{height:240px}
+  .photo-banner-overlay{padding:24px}
+  .photo-banner-overlay h3{font-size:1.4rem}
+  .photo-banner-overlay .script{font-size:1.2rem}
+}
+
+/* gentle SVG element animations */
+@keyframes sceneSwayL{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes sceneSwayR{0%,100%{transform:rotate(3deg)}50%{transform:rotate(-3deg)}}
+@keyframes sceneFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes sceneSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes sceneSurfBob{0%,100%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(6px,-3px) rotate(2deg)}}
+@keyframes sceneFlicker{0%,100%{opacity:.95;transform:scaleY(1)}50%{opacity:.6;transform:scaleY(.85)}}
+@keyframes sceneShine{0%,100%{opacity:.2}50%{opacity:.85}}
+@keyframes sceneFishSwim{from{transform:translateX(-30px)}to{transform:translateX(420px)}}
+@keyframes sceneDrift{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+
+.svg-palm{transform-origin:bottom center;animation:sceneSwayL 4s ease-in-out infinite}
+.svg-palm-2{transform-origin:bottom center;animation:sceneSwayR 5s ease-in-out infinite}
+.svg-sun{transform-origin:center;animation:sceneSpin 60s linear infinite}
+.svg-cloud{animation:sceneDrift 6s ease-in-out infinite}
+.svg-surfer{animation:sceneSurfBob 3s ease-in-out infinite}
+.svg-flame{transform-origin:bottom center;animation:sceneFlicker 1.2s ease-in-out infinite}
+.svg-shine{animation:sceneShine 3s ease-in-out infinite}
+.svg-fish{animation:sceneFishSwim 10s linear infinite}
+.svg-fish-2{animation:sceneFishSwim 14s linear infinite;animation-delay:-4s}
+.svg-rotor{transform-origin:center;animation:sceneSpin .25s linear infinite}
+
+@media (prefers-reduced-motion: reduce){
+  .svg-palm,.svg-palm-2,.svg-sun,.svg-cloud,.svg-surfer,.svg-flame,.svg-shine,.svg-fish,.svg-fish-2,.svg-rotor{animation:none}
+}
+
+/* ============================================================
+   SCUBA SCENE — animated diver with bubbles
+   ============================================================ */
+.scuba-scene{
+  position:relative;
+  width:100%;
+  height:300px;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:linear-gradient(180deg,#3aa0b8 0%,#1d6680 35%,#0a3d52 70%,#062a3a 100%);
+  box-shadow:var(--shadow-medium);
+  margin-bottom:50px;
+}
+.scuba-scene svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scuba-scene .caption{
+  position:absolute;
+  bottom:18px;
+  left:24px;
+  color:#fff;
+  z-index:2;
+  font-family:'Caveat',cursive;
+  font-size:1.6rem;
+  text-shadow:0 2px 14px rgba(0,0,0,.5);
+}
+@keyframes diverFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes finKickTop{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(15deg)}}
+@keyframes finKickBot{0%,100%{transform:rotate(12deg)}50%{transform:rotate(-15deg)}}
+@keyframes bubbleRise{
+  0%{transform:translate(0,0) scale(.5);opacity:0}
+  10%{opacity:.9}
+  85%{opacity:.85}
+  100%{transform:translate(12px,-220px) scale(1.5);opacity:0}
+}
+@keyframes lightRay{0%,100%{opacity:.18}50%{opacity:.4}}
+@keyframes seaSway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes fishCross{from{transform:translateX(-80px)}to{transform:translateX(920px)}}
+.diver-body{animation:diverFloat 4s ease-in-out infinite;transform-origin:center}
+.fin-top{transform-origin:right center;animation:finKickTop .9s ease-in-out infinite}
+.fin-bot{transform-origin:right center;animation:finKickBot .9s ease-in-out infinite}
+.bubble{animation:bubbleRise 5s ease-in infinite;transform-origin:center}
+.bubble-1{animation-delay:0s}
+.bubble-2{animation-delay:.6s}
+.bubble-3{animation-delay:1.2s}
+.bubble-4{animation-delay:1.8s}
+.bubble-5{animation-delay:2.4s}
+.bubble-6{animation-delay:3.0s}
+.bubble-7{animation-delay:3.6s}
+.bubble-8{animation-delay:4.2s}
+.light-ray-1{animation:lightRay 4s ease-in-out infinite}
+.light-ray-2{animation:lightRay 5s ease-in-out infinite;animation-delay:-1s}
+.light-ray-3{animation:lightRay 3.5s ease-in-out infinite;animation-delay:-2s}
+.sea-plant{transform-origin:bottom center;animation:seaSway 4s ease-in-out infinite}
+.sea-plant-2{transform-origin:bottom center;animation:seaSway 5s ease-in-out infinite;animation-delay:-1.5s}
+.bg-fish{animation:fishCross 18s linear infinite}
+.bg-fish-2{animation:fishCross 22s linear infinite;animation-delay:-9s}
+@media (prefers-reduced-motion: reduce){
+  .diver-body,.fin-top,.fin-bot,.bubble,.light-ray-1,.light-ray-2,.light-ray-3,.sea-plant,.sea-plant-2,.bg-fish,.bg-fish-2{animation:none}
+}
+
+/* ============================================================
+   HAWAII TRAVEL NETWORK
+   ============================================================ */
+.network-section{
+  background:linear-gradient(135deg,#003049 0%,#005f73 100%);
+  color:#fff;
   position:relative;
   overflow:hidden;
 }
-.tile-beach{background:linear-gradient(180deg,#5fb4d4 0%,#94d2bd 35%,#fdf0d5 60%,#f4d8a8 100%)}
-.tile-beach::before{content:"";position:absolute;top:18%;left:12%;width:60px;height:60px;background:radial-gradient(circle,#f4a261,#ee6c4d);border-radius:50%;box-shadow:0 0 60px rgba(244,162,97,.6)}
-.tile-volcano{background:linear-gradient(180deg,#264653 0%,#2a9d8f 60%,#e9c46a 100%)}
-.tile-volcano::before{content:"";position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(135deg,#2a3a4a 0%,#1d2d3d 100%);clip-path:polygon(0 100%,15% 60%,35% 80%,55% 40%,75% 70%,100% 30%,100% 100%)}
-.tile-pearl{background:linear-gradient(180deg,#003049 0%,#005f73 100%)}
-.tile-pearl::before{content:"";position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:80%;height:30%;background:linear-gradient(180deg,#94d2bd 0%,#0a9396 100%);border-radius:20px}
-.tile-shore{background:linear-gradient(180deg,#0a9396 0%,#94d2bd 50%,#fdf0d5 100%)}
-.tile-shore::before{content:"";position:absolute;top:50%;left:-10%;right:-10%;height:30%;background:radial-gradient(ellipse at center,rgba(255,255,255,.6),transparent 70%);transform:rotate(-3deg)}
-.tile-jungle{background:linear-gradient(180deg,#1a4d3a 0%,#2a9d8f 100%)}
-.tile-jungle::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 40% 60% at 30% 70%,rgba(148,210,189,.5),transparent),radial-gradient(ellipse 50% 40% at 70% 50%,rgba(168,228,200,.4),transparent)}
-.tile-cultural{background:linear-gradient(135deg,#ee6c4d 0%,#f4a261 100%)}
-.tile-cultural::before{content:"";position:absolute;top:50%;left:50%;width:60%;height:60%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,255,255,.3),transparent 70%);border-radius:50%}
-.tile-lanikai{background:linear-gradient(180deg,#94d2bd 0%,#0a9396 50%,#005f73 100%)}
-.tile-haleiwa{background:linear-gradient(180deg,#f4a261 0%,#ee6c4d 50%,#e63946 100%)}
-.tile-koko{background:linear-gradient(180deg,#465775 0%,#1d2d44 100%)}
-.tile-koko::before{content:"";position:absolute;bottom:0;left:50%;width:60%;height:80%;transform:translateX(-50%);background:linear-gradient(180deg,#5a6c8a 0%,#2d3a52 100%);clip-path:polygon(0 100%,50% 0%,100% 100%)}
-.tile-dole{background:linear-gradient(180deg,#e9c46a 0%,#f4a261 50%,#2a9d8f 100%)}
-.tile-makapuu{background:linear-gradient(180deg,#264653 0%,#0a9396 50%,#94d2bd 100%)}
-.tile-makapuu::before{content:"";position:absolute;top:30%;right:25%;width:18px;height:50px;background:#fff;border-radius:4px}
+.network-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at top right,rgba(10,147,150,.25),transparent 60%),radial-gradient(ellipse at bottom left,rgba(238,108,77,.15),transparent 55%);
+  pointer-events:none;
+}
+.network-section .section-head{position:relative;z-index:1}
+.network-section .section-head h2{color:#fff}
+.network-section .section-head p,.network-section .section-head .script{color:rgba(255,255,255,.85)}
+.network-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  position:relative;
+  z-index:1;
+}
+.network-card{
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r-md);
+  padding:28px 24px;
+  transition:all .3s ease;
+}
+.network-card:hover{
+  background:rgba(255,255,255,.1);
+  transform:translateY(-4px);
+  border-color:rgba(148,210,189,.4);
+}
+.network-card .net-icon{
+  width:54px;height:54px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:16px;
+}
+.network-card.net-dive .net-icon{background:linear-gradient(135deg,#0a9396,#005f73)}
+.network-card.net-stay .net-icon{background:linear-gradient(135deg,#ee6c4d,#e63946)}
+.network-card.net-eat .net-icon{background:linear-gradient(135deg,#f4a261,#ee6c4d)}
+.network-card.net-do .net-icon{background:linear-gradient(135deg,#94d2bd,#0a9396)}
+.network-card .net-icon svg{width:28px;height:28px;color:#fff}
+.network-card h3{color:#fff;font-size:1.15rem;margin-bottom:6px}
+.network-card .net-sub{
+  color:rgba(255,255,255,.65);
+  font-size:.78rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:14px;
+}
+.network-card ul{list-style:none;padding:0;margin:0}
+.network-card li{margin-bottom:8px;font-size:.92rem}
+.network-card a{
+  color:rgba(255,255,255,.88);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:all .2s ease;
+}
+.network-card a:hover{color:#94d2bd;border-bottom-color:#94d2bd}
+.network-note{
+  margin-top:36px;
+  text-align:center;
+  color:rgba(255,255,255,.7);
+  font-size:.92rem;
+  position:relative;
+  z-index:1;
+}
+@media (max-width:1000px){.network-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.network-grid{grid-template-columns:1fr}}
 
 /* ============================================================
    BEACHES SECTION
@@ -866,28 +1082,44 @@ section{position:relative}
 }
 .builder-wrap{
   display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:40px;
+  grid-template-columns:1.1fr 1fr;
+  gap:30px;
   background:#fff;
   border-radius:var(--r-xl);
-  padding:50px;
+  padding:40px;
   box-shadow:var(--shadow-strong);
   position:relative;
   z-index:1;
+  align-items:start;
 }
-.builder-source h3,.builder-list h3{font-size:1.3rem;margin-bottom:20px}
-.builder-source .source-list,.builder-list .drop-list{
-  min-height:320px;
+.builder-source h3,.builder-list h3{font-size:1.2rem;margin-bottom:14px}
+.builder-source .source-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  max-height:560px;
+  overflow-y:auto;
+  background:#f0f7f6;
+  border:2px dashed rgba(0,95,115,.2);
+  border-radius:var(--r-md);
+  padding:14px;
+  scrollbar-width:thin;
+  scrollbar-color:var(--turquoise) #e2eded;
+}
+.builder-source .source-list::-webkit-scrollbar{width:8px}
+.builder-source .source-list::-webkit-scrollbar-track{background:#e2eded;border-radius:4px}
+.builder-source .source-list::-webkit-scrollbar-thumb{background:var(--turquoise);border-radius:4px}
+.builder-list .drop-list{
+  min-height:380px;
   background:var(--foam);
   border:2px dashed rgba(0,95,115,.2);
   border-radius:var(--r-md);
-  padding:16px;
+  padding:14px;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:8px;
   transition:border-color .25s ease,background .25s ease;
 }
-.builder-source .source-list{background:#f0f7f6}
 .builder-list .drop-list.drag-over{
   border-color:var(--coral);
   background:#fff7f3;
@@ -895,20 +1127,22 @@ section{position:relative}
 .draggable-item{
   background:#fff;
   border:1px solid rgba(0,95,115,.12);
-  border-left:4px solid var(--turquoise);
-  border-radius:10px;
-  padding:12px 16px;
+  border-left:3px solid var(--turquoise);
+  border-radius:8px;
+  padding:9px 12px;
   cursor:grab;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
+  gap:8px;
   transition:all .2s ease;
   user-select:none;
-  font-size:.92rem;
+  font-size:.84rem;
   font-weight:600;
   color:var(--deep-ocean);
+  line-height:1.3;
 }
+.draggable-item .item-text{flex:1;min-width:0}
 .draggable-item:hover{transform:translateX(2px);box-shadow:0 4px 12px rgba(0,48,73,.08)}
 .draggable-item:active{cursor:grabbing}
 .draggable-item.dragging{opacity:.4}
@@ -957,7 +1191,8 @@ section{position:relative}
   font-style:italic;
 }
 @media (max-width:880px){
-  .builder-wrap{grid-template-columns:1fr;padding:30px;gap:30px}
+  .builder-wrap{grid-template-columns:1fr;padding:24px;gap:24px}
+  .builder-source .source-list{grid-template-columns:1fr;max-height:400px}
 }
 
 /* ============================================================
@@ -1266,7 +1501,33 @@ section{position:relative}
   gap:50px;
   margin-bottom:50px;
 }
-.footer-brand img{height:60px;margin-bottom:16px;filter:brightness(0) invert(1) opacity(.95)}
+.footer-brand .footer-mark{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer-brand .footer-mark .mark-icon{
+  width:46px;height:46px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--turquoise),var(--coral));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 18px rgba(238,108,77,.3);
+  flex-shrink:0;
+}
+.footer-brand .footer-mark .mark-icon svg{width:26px;height:26px;color:#fff}
+.footer-brand .footer-mark .mark-text{
+  font-family:var(--serif);
+  font-size:1.35rem;
+  font-weight:700;
+  color:#fff;
+  line-height:1;
+}
+.footer-brand .footer-mark .mark-text .tag{
+  display:block;
+  font-family:var(--sans);
+  font-size:.7rem;
+  font-weight:600;
+  color:var(--lagoon);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  margin-top:4px;
+}
 .footer-brand p{font-size:.95rem;line-height:1.7}
 .footer-col h4{
   color:#fff;
@@ -1471,7 +1732,44 @@ section{position:relative}
     <div class="attractions">
       <a href="#waikiki" class="attr-card large fade-in" id="waikiki">
         <div class="card-img">
-          <div class="tile-art tile-beach" role="img" aria-label="Waikiki Beach sunset over the Pacific"></div>
+          <div class="scene scene-waikiki" role="img" aria-label="Waikiki Beach sunset with palms and surfers">
+            <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Sun -->
+              <g class="svg-sun" style="transform-origin:300px 80px"><circle cx="300" cy="80" r="38" fill="#fff7d6" opacity=".95"/><circle cx="300" cy="80" r="50" fill="#fff7d6" opacity=".25"/></g>
+              <!-- Sun shimmer line on water -->
+              <ellipse class="svg-shine" cx="300" cy="195" rx="60" ry="6" fill="#fff" opacity=".5"/>
+              <!-- Water -->
+              <path d="M0,180 Q100,170 200,180 T400,180 L400,280 L0,280 Z" fill="#0a3d52" opacity=".55"/>
+              <path d="M0,210 Q80,200 160,210 T400,210 L400,280 L0,280 Z" fill="#003049" opacity=".7"/>
+              <!-- Diamond Head silhouette -->
+              <path d="M0,180 L40,160 L80,150 L130,170 L180,180 Z" fill="#5a2a30" opacity=".6"/>
+              <!-- Beach -->
+              <path d="M0,250 Q200,238 400,250 L400,280 L0,280 Z" fill="#f4d6a8"/>
+              <!-- Surfer silhouette on board -->
+              <g class="svg-surfer" style="transform-origin:120px 215px">
+                <ellipse cx="120" cy="215" rx="22" ry="4" fill="#1a2a3a"/>
+                <rect x="115" y="195" width="3" height="18" fill="#1a2a3a"/>
+                <circle cx="116" cy="190" r="4" fill="#1a2a3a"/>
+              </g>
+              <!-- Palm tree left -->
+              <g class="svg-palm" style="transform-origin:48px 270px">
+                <path d="M48,270 Q44,200 50,140" stroke="#3a2218" stroke-width="6" fill="none" stroke-linecap="round"/>
+                <path d="M50,140 Q20,128 6,142 Q30,138 50,148" fill="#1f5f3a"/>
+                <path d="M50,140 Q80,128 96,144 Q72,138 50,150" fill="#2a7d4f"/>
+                <path d="M50,138 Q40,108 22,100 Q42,114 52,140" fill="#1f5f3a"/>
+                <path d="M50,138 Q60,108 78,98 Q60,116 52,140" fill="#2a7d4f"/>
+                <circle cx="46" cy="146" r="3" fill="#6b4226"/>
+                <circle cx="54" cy="146" r="3" fill="#6b4226"/>
+              </g>
+              <!-- Palm tree right -->
+              <g class="svg-palm-2" style="transform-origin:360px 270px">
+                <path d="M360,270 Q356,210 362,160" stroke="#3a2218" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <path d="M362,160 Q340,150 326,158 Q346,156 362,166" fill="#1f5f3a"/>
+                <path d="M362,160 Q386,150 396,164 Q380,156 362,168" fill="#2a7d4f"/>
+                <path d="M362,158 Q352,134 338,128 Q352,142 364,160" fill="#1f5f3a"/>
+              </g>
+            </svg>
+          </div>
           <span class="badge">Iconic</span>
         </div>
         <div class="card-body">
@@ -1482,7 +1780,20 @@ section{position:relative}
 
       <a href="#diamond-head" class="attr-card medium fade-in" id="diamond-head">
         <div class="card-img">
-          <div class="tile-art tile-volcano" role="img" aria-label="Diamond Head volcanic crater on Oahu"></div>
+          <div class="scene scene-diamond" role="img" aria-label="Diamond Head crater silhouette under sunset sky">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <g class="svg-sun" style="transform-origin:80px 70px"><circle cx="80" cy="70" r="32" fill="#fff" opacity=".8"/></g>
+              <g class="svg-cloud"><ellipse cx="320" cy="60" rx="40" ry="10" fill="#fff" opacity=".6"/><ellipse cx="340" cy="55" rx="28" ry="8" fill="#fff" opacity=".5"/></g>
+              <!-- Crater silhouette -->
+              <path d="M0,240 L0,170 L60,140 L120,100 L180,75 L240,90 L300,130 L360,160 L400,180 L400,240 Z" fill="#3a2218"/>
+              <path d="M0,240 L0,200 L80,180 L160,170 L240,180 L320,195 L400,210 L400,240 Z" fill="#5a3225" opacity=".7"/>
+              <!-- Ridge highlights -->
+              <path d="M120,100 L180,75 L240,90" stroke="#7a4520" stroke-width="2" fill="none"/>
+              <!-- Tiny hiker -->
+              <circle cx="200" cy="92" r="2" fill="#1a1a1a"/>
+              <line x1="200" y1="94" x2="200" y2="100" stroke="#1a1a1a" stroke-width="1"/>
+            </svg>
+          </div>
           <span class="badge">Hike</span>
         </div>
         <div class="card-body">
@@ -1493,7 +1804,31 @@ section{position:relative}
 
       <a href="#pearl-harbor" class="attr-card medium fade-in" id="pearl-harbor">
         <div class="card-img">
-          <div class="tile-art tile-pearl" role="img" aria-label="Pearl Harbor USS Arizona Memorial in Hawaii"></div>
+          <div class="scene scene-pearl" role="img" aria-label="Pearl Harbor memorial across calm harbor waters">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <g class="svg-cloud"><ellipse cx="80" cy="50" rx="36" ry="9" fill="#fff" opacity=".55"/></g>
+              <g class="svg-cloud" style="animation-delay:-3s"><ellipse cx="300" cy="40" rx="44" ry="11" fill="#fff" opacity=".45"/></g>
+              <!-- Water -->
+              <rect x="0" y="140" width="400" height="100" fill="#1a3a4a"/>
+              <path d="M0,140 Q100,135 200,140 T400,140 L400,160 L0,160 Z" fill="#0a2a3a" opacity=".5"/>
+              <!-- Memorial structure (white arched roof) -->
+              <g transform="translate(160,110)">
+                <rect x="0" y="20" width="80" height="6" fill="#fff"/>
+                <path d="M0,20 Q40,-6 80,20 Z" fill="#fff" opacity=".95"/>
+                <rect x="6" y="26" width="68" height="14" fill="#e8e8e8"/>
+                <!-- Pillars -->
+                <rect x="14" y="26" width="3" height="14" fill="#fff"/>
+                <rect x="34" y="26" width="3" height="14" fill="#fff"/>
+                <rect x="54" y="26" width="3" height="14" fill="#fff"/>
+                <rect x="64" y="26" width="3" height="14" fill="#fff"/>
+                <!-- Flagpole -->
+                <line x1="40" y1="20" x2="40" y2="-30" stroke="#fff" stroke-width="2"/>
+                <rect x="40" y="-28" width="14" height="8" fill="#cc2a30"/>
+              </g>
+              <!-- Reflection -->
+              <ellipse cx="200" cy="200" rx="80" ry="5" fill="#fff" opacity=".15"/>
+            </svg>
+          </div>
           <span class="badge">History</span>
         </div>
         <div class="card-body">
@@ -1504,7 +1839,33 @@ section{position:relative}
 
       <a href="#hanauma-bay" class="attr-card small fade-in" id="hanauma-bay">
         <div class="card-img">
-          <div class="tile-art tile-shore" role="img" aria-label="Hanauma Bay snorkeling reef Oahu"></div>
+          <div class="scene scene-hanauma" role="img" aria-label="Hanauma Bay coral reef with tropical fish">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Light rays -->
+              <path d="M100,0 L60,200 L140,200 Z" fill="#fff" opacity=".1"/>
+              <path d="M300,0 L260,200 L340,200 Z" fill="#fff" opacity=".08"/>
+              <!-- Coral -->
+              <g transform="translate(40,170)">
+                <path d="M0,0 Q5,-30 -5,-40 M10,0 Q20,-35 15,-50 M-15,0 Q-20,-25 -25,-32" stroke="#ee6c4d" stroke-width="4" fill="none" stroke-linecap="round"/>
+              </g>
+              <g transform="translate(340,180)">
+                <path d="M0,0 Q-6,-20 4,-30 M10,0 Q15,-25 8,-38" stroke="#f4a261" stroke-width="4" fill="none" stroke-linecap="round"/>
+              </g>
+              <!-- Tropical fish swimming -->
+              <g class="svg-fish">
+                <ellipse cx="20" cy="90" rx="14" ry="6" fill="#f4a261"/>
+                <polygon points="6,90 -4,86 -4,94" fill="#f4a261"/>
+                <circle cx="26" cy="88" r="1.5" fill="#003049"/>
+              </g>
+              <g class="svg-fish-2">
+                <ellipse cx="20" cy="130" rx="11" ry="5" fill="#e9c46a"/>
+                <polygon points="9,130 1,127 1,133" fill="#e9c46a"/>
+                <circle cx="25" cy="129" r="1.2" fill="#003049"/>
+              </g>
+              <!-- Sea floor -->
+              <path d="M0,200 L0,180 Q100,170 200,180 T400,180 L400,200 Z" fill="#0a3d4a"/>
+            </svg>
+          </div>
           <span class="badge">Snorkel</span>
         </div>
         <div class="card-body">
@@ -1515,7 +1876,22 @@ section{position:relative}
 
       <a href="#kualoa" class="attr-card small fade-in" id="kualoa">
         <div class="card-img">
-          <div class="tile-art tile-jungle" role="img" aria-label="Kualoa Ranch jungle valley Oahu Hawaii"></div>
+          <div class="scene scene-kualoa" role="img" aria-label="Kualoa Ranch jungle valley mountains">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Sky tint -->
+              <rect width="400" height="60" fill="#3a5a4a" opacity=".4"/>
+              <!-- Distant ridges -->
+              <path d="M0,90 L60,60 L120,70 L180,45 L240,55 L300,40 L360,55 L400,50 L400,200 L0,200 Z" fill="#0d2a1e"/>
+              <path d="M0,120 L80,100 L160,115 L240,90 L320,105 L400,95 L400,200 L0,200 Z" fill="#1a3d2e"/>
+              <!-- Tree silhouettes -->
+              <g transform="translate(50,160)"><ellipse cx="0" cy="0" rx="20" ry="10" fill="#0a2018"/></g>
+              <g transform="translate(120,170)"><ellipse cx="0" cy="0" rx="26" ry="11" fill="#0a2018"/></g>
+              <g transform="translate(280,168)"><ellipse cx="0" cy="0" rx="22" ry="10" fill="#0a2018"/></g>
+              <g transform="translate(350,172)"><ellipse cx="0" cy="0" rx="20" ry="9" fill="#0a2018"/></g>
+              <!-- Subtle mist -->
+              <ellipse cx="200" cy="100" rx="180" ry="14" fill="#fff" opacity=".08"/>
+            </svg>
+          </div>
           <span class="badge">Adventure</span>
         </div>
         <div class="card-body">
@@ -1526,7 +1902,40 @@ section{position:relative}
 
       <a href="#north-shore" class="attr-card wide fade-in" id="north-shore">
         <div class="card-img">
-          <div class="tile-art tile-haleiwa" role="img" aria-label="North Shore Oahu surf waves Banzai Pipeline"></div>
+          <div class="scene scene-northshore" role="img" aria-label="North Shore Oahu surfer riding a big wave at Banzai Pipeline">
+            <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Sky cloud -->
+              <g class="svg-cloud"><ellipse cx="120" cy="40" rx="60" ry="12" fill="#fff" opacity=".6"/><ellipse cx="160" cy="34" rx="36" ry="10" fill="#fff" opacity=".5"/></g>
+              <g class="svg-cloud" style="animation-delay:-2s"><ellipse cx="620" cy="48" rx="70" ry="14" fill="#fff" opacity=".5"/></g>
+              <!-- Big wave -->
+              <path d="M0,180 Q150,80 350,140 Q400,160 450,140 Q550,90 800,160 L800,260 L0,260 Z" fill="#1a6a85"/>
+              <path d="M0,200 Q150,110 350,160 Q400,180 450,160 Q550,120 800,180 L800,260 L0,260 Z" fill="#0d4d65"/>
+              <!-- Wave crest foam -->
+              <path d="M300,135 Q360,120 420,135 Q400,128 380,130 Q340,128 300,135" fill="#fff" opacity=".85"/>
+              <path d="M280,150 Q320,142 360,148 Q330,144 305,148" fill="#fff" opacity=".6"/>
+              <!-- Surfer on wave -->
+              <g class="svg-surfer" style="transform-origin:380px 140px">
+                <!-- Board -->
+                <ellipse cx="380" cy="145" rx="22" ry="3" fill="#fff7d6"/>
+                <!-- Body -->
+                <line x1="380" y1="143" x2="380" y2="125" stroke="#1a2a3a" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="380" cy="120" r="4" fill="#1a2a3a"/>
+                <!-- Arms -->
+                <line x1="380" y1="130" x2="370" y2="123" stroke="#1a2a3a" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="380" y1="130" x2="392" y2="125" stroke="#1a2a3a" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+              <!-- Water spray -->
+              <circle cx="450" cy="155" r="2" fill="#fff" opacity=".8"/>
+              <circle cx="460" cy="150" r="2.5" fill="#fff" opacity=".7"/>
+              <circle cx="470" cy="158" r="1.8" fill="#fff" opacity=".7"/>
+              <!-- Distant palm silhouette -->
+              <g class="svg-palm" style="transform-origin:50px 260px">
+                <line x1="50" y1="260" x2="52" y2="200" stroke="#1a2a30" stroke-width="3"/>
+                <path d="M52,200 Q30,192 18,200 Q38,196 52,206" fill="#1a2a30"/>
+                <path d="M52,200 Q72,192 84,202 Q66,196 52,206" fill="#1a2a30"/>
+              </g>
+            </svg>
+          </div>
           <span class="badge">Surf</span>
         </div>
         <div class="card-body">
@@ -1537,7 +1946,43 @@ section{position:relative}
 
       <a href="#pcc" class="attr-card small fade-in" id="pcc">
         <div class="card-img">
-          <div class="tile-art tile-cultural" role="img" aria-label="Polynesian Cultural Center Oahu luau"></div>
+          <div class="scene scene-pcc" role="img" aria-label="Polynesian Cultural Center torches and fire dancers at luau">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Moon/sky glow -->
+              <circle cx="320" cy="40" r="20" fill="#fff7d6" opacity=".4"/>
+              <!-- Tiki torch left -->
+              <g transform="translate(80,180)">
+                <rect x="-3" y="-80" width="6" height="80" fill="#3a2218"/>
+                <rect x="-8" y="-90" width="16" height="14" fill="#5a3225"/>
+                <g class="svg-flame" style="transform-origin:0 -90px">
+                  <path d="M0,-90 Q-8,-105 -4,-115 Q0,-110 4,-118 Q8,-105 0,-90" fill="#ff6b1a"/>
+                  <path d="M0,-92 Q-4,-102 -2,-110 Q0,-106 2,-112 Q4,-102 0,-92" fill="#ffd700"/>
+                </g>
+              </g>
+              <!-- Tiki torch right -->
+              <g transform="translate(320,180)">
+                <rect x="-3" y="-90" width="6" height="90" fill="#3a2218"/>
+                <rect x="-8" y="-100" width="16" height="14" fill="#5a3225"/>
+                <g class="svg-flame" style="transform-origin:0 -100px;animation-delay:-.4s">
+                  <path d="M0,-100 Q-9,-118 -4,-128 Q0,-122 5,-130 Q9,-115 0,-100" fill="#ff6b1a"/>
+                  <path d="M0,-102 Q-4,-114 -2,-122 Q0,-118 2,-124 Q4,-114 0,-102" fill="#ffd700"/>
+                </g>
+              </g>
+              <!-- Hula dancer silhouette center -->
+              <g transform="translate(200,180)">
+                <ellipse cx="0" cy="0" rx="40" ry="6" fill="#1a0a14" opacity=".6"/>
+                <!-- Grass skirt -->
+                <path d="M-22,-10 L-26,-2 M-14,-10 L-16,-1 M-6,-10 L-6,-1 M2,-10 L4,-1 M10,-10 L14,-1 M18,-10 L22,-2" stroke="#4a3215" stroke-width="3" stroke-linecap="round"/>
+                <!-- Body -->
+                <ellipse cx="0" cy="-25" rx="14" ry="18" fill="#2a1a14"/>
+                <!-- Head -->
+                <circle cx="0" cy="-50" r="9" fill="#2a1a14"/>
+                <!-- Arms outstretched -->
+                <path d="M-14,-30 Q-30,-40 -34,-22" stroke="#2a1a14" stroke-width="6" fill="none" stroke-linecap="round"/>
+                <path d="M14,-30 Q30,-40 34,-22" stroke="#2a1a14" stroke-width="6" fill="none" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
           <span class="badge">Culture</span>
         </div>
         <div class="card-body">
@@ -1548,7 +1993,24 @@ section{position:relative}
 
       <a href="#lanikai" class="attr-card medium fade-in" id="lanikai">
         <div class="card-img">
-          <div class="tile-art tile-lanikai" role="img" aria-label="Lanikai Beach turquoise water Oahu"></div>
+          <div class="scene scene-lanikai" role="img" aria-label="Lanikai Beach with Mokulua Islands on horizon">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <g class="svg-sun" style="transform-origin:90px 60px"><circle cx="90" cy="60" r="26" fill="#fff" opacity=".85"/></g>
+              <g class="svg-cloud"><ellipse cx="280" cy="50" rx="40" ry="9" fill="#fff" opacity=".6"/></g>
+              <!-- Mokulua islands -->
+              <ellipse cx="220" cy="142" rx="34" ry="18" fill="#1f5f3a"/>
+              <ellipse cx="220" cy="138" rx="34" ry="14" fill="#2a7d4f"/>
+              <ellipse cx="280" cy="148" rx="26" ry="14" fill="#1f5f3a"/>
+              <ellipse cx="280" cy="145" rx="26" ry="11" fill="#2a7d4f"/>
+              <!-- Water -->
+              <path d="M0,150 Q200,144 400,150 L400,200 L0,200 Z" fill="#0a9396" opacity=".8"/>
+              <path d="M0,180 Q200,174 400,180 L400,200 L0,200 Z" fill="#005f73"/>
+              <!-- Sand -->
+              <path d="M0,200 Q200,194 400,200 L400,240 L0,240 Z" fill="#fce5cd"/>
+              <!-- Shimmer line -->
+              <ellipse class="svg-shine" cx="90" cy="170" rx="42" ry="3" fill="#fff" opacity=".6"/>
+            </svg>
+          </div>
           <span class="badge">Best Beach</span>
         </div>
         <div class="card-body">
@@ -1559,7 +2021,29 @@ section{position:relative}
 
       <a href="#haleiwa" class="attr-card medium fade-in" id="haleiwa">
         <div class="card-img">
-          <div class="tile-art tile-haleiwa" role="img" aria-label="Historic Haleiwa town North Shore Oahu"></div>
+          <div class="scene scene-haleiwa" role="img" aria-label="Haleiwa town surfboards leaning against shop">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <g class="svg-sun" style="transform-origin:320px 60px"><circle cx="320" cy="60" r="24" fill="#fff" opacity=".75"/></g>
+              <!-- Shop building -->
+              <rect x="60" y="100" width="200" height="100" fill="#d4a766"/>
+              <polygon points="60,100 160,60 260,100" fill="#8c4a2a"/>
+              <rect x="100" y="130" width="30" height="40" fill="#4a3215"/>
+              <rect x="160" y="130" width="40" height="30" fill="#94d2bd" opacity=".6"/>
+              <!-- Surfboard quiver leaning -->
+              <g transform="translate(290,200)">
+                <ellipse cx="0" cy="-30" rx="6" ry="50" fill="#ee6c4d" transform="rotate(8)"/>
+                <ellipse cx="10" cy="-30" rx="6" ry="50" fill="#fdf0d5" transform="rotate(4)"/>
+                <ellipse cx="20" cy="-30" rx="6" ry="50" fill="#0a9396" transform="rotate(0)"/>
+                <ellipse cx="30" cy="-30" rx="6" ry="50" fill="#e63946" transform="rotate(-4)"/>
+                <ellipse cx="40" cy="-30" rx="6" ry="50" fill="#264653" transform="rotate(-8)"/>
+              </g>
+              <!-- Ground -->
+              <rect x="0" y="200" width="400" height="40" fill="#5a4020"/>
+              <!-- Sign -->
+              <rect x="120" y="78" width="80" height="20" fill="#fff"/>
+              <text x="160" y="92" font-family="Arial" font-size="11" font-weight="700" fill="#003049" text-anchor="middle">SURF SHOP</text>
+            </svg>
+          </div>
           <span class="badge">Town</span>
         </div>
         <div class="card-body">
@@ -1570,7 +2054,32 @@ section{position:relative}
 
       <a href="#koko-head" class="attr-card small fade-in" id="koko-head">
         <div class="card-img">
-          <div class="tile-art tile-koko" role="img" aria-label="Koko Head Crater stairs hike Oahu"></div>
+          <div class="scene scene-koko" role="img" aria-label="Koko Head Crater stairs leading up the mountain">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Crater silhouette -->
+              <polygon points="0,200 0,140 100,80 200,30 300,90 400,150 400,200" fill="#1a2a35"/>
+              <polygon points="0,200 0,170 80,140 200,90 320,130 400,160 400,200" fill="#0d1a25" opacity=".8"/>
+              <!-- Stairs zig-zag up -->
+              <g stroke="#7a6555" stroke-width="2" fill="none" stroke-linecap="round">
+                <line x1="200" y1="190" x2="200" y2="184"/>
+                <line x1="200" y1="178" x2="200" y2="172"/>
+                <line x1="200" y1="166" x2="200" y2="160"/>
+                <line x1="200" y1="154" x2="200" y2="148"/>
+                <line x1="200" y1="142" x2="200" y2="136"/>
+                <line x1="200" y1="130" x2="200" y2="124"/>
+                <line x1="200" y1="118" x2="200" y2="112"/>
+                <line x1="200" y1="106" x2="200" y2="100"/>
+                <line x1="200" y1="94" x2="200" y2="88"/>
+                <line x1="200" y1="82" x2="200" y2="76"/>
+              </g>
+              <!-- Tiny climber dot -->
+              <circle cx="200" cy="130" r="2" fill="#ee6c4d"/>
+              <!-- Stars -->
+              <circle cx="60" cy="30" r="1" fill="#fff"/>
+              <circle cx="120" cy="22" r="1" fill="#fff"/>
+              <circle cx="340" cy="35" r="1" fill="#fff"/>
+            </svg>
+          </div>
           <span class="badge">Tough Hike</span>
         </div>
         <div class="card-body">
@@ -1581,7 +2090,40 @@ section{position:relative}
 
       <a href="#dole" class="attr-card small fade-in" id="dole">
         <div class="card-img">
-          <div class="tile-art tile-dole" role="img" aria-label="Dole Plantation pineapple field Oahu"></div>
+          <div class="scene scene-dole" role="img" aria-label="Dole Plantation pineapple">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Pineapple field rows -->
+              <g opacity=".4">
+                <ellipse cx="60" cy="170" rx="40" ry="6" fill="#1f5f3a"/>
+                <ellipse cx="160" cy="180" rx="40" ry="6" fill="#1f5f3a"/>
+                <ellipse cx="260" cy="190" rx="40" ry="6" fill="#1f5f3a"/>
+                <ellipse cx="360" cy="180" rx="40" ry="6" fill="#1f5f3a"/>
+              </g>
+              <!-- Giant pineapple center -->
+              <g transform="translate(200,110)">
+                <!-- Body -->
+                <ellipse cx="0" cy="20" rx="40" ry="56" fill="#e9a832"/>
+                <!-- Crosshatch pattern -->
+                <g stroke="#8c5a14" stroke-width="1.2" opacity=".8" fill="none">
+                  <line x1="-30" y1="-10" x2="30" y2="20"/>
+                  <line x1="-30" y1="10" x2="30" y2="40"/>
+                  <line x1="-30" y1="30" x2="30" y2="60"/>
+                  <line x1="-30" y1="50" x2="30" y2="70"/>
+                  <line x1="-30" y1="20" x2="30" y2="-10"/>
+                  <line x1="-30" y1="40" x2="30" y2="10"/>
+                  <line x1="-30" y1="60" x2="30" y2="30"/>
+                </g>
+                <!-- Crown leaves -->
+                <g class="svg-palm" style="transform-origin:0 -32px">
+                  <path d="M0,-32 L-14,-60 L-4,-50 Z" fill="#1f5f3a"/>
+                  <path d="M0,-32 L0,-70 L4,-58 Z" fill="#2a7d4f"/>
+                  <path d="M0,-32 L14,-60 L4,-50 Z" fill="#1f5f3a"/>
+                  <path d="M0,-32 L-22,-50 L-8,-44 Z" fill="#2a7d4f"/>
+                  <path d="M0,-32 L22,-50 L8,-44 Z" fill="#1f5f3a"/>
+                </g>
+              </g>
+            </svg>
+          </div>
           <span class="badge">Family</span>
         </div>
         <div class="card-body">
@@ -1592,12 +2134,182 @@ section{position:relative}
 
       <a href="#makapuu" class="attr-card medium fade-in" id="makapuu">
         <div class="card-img">
-          <div class="tile-art tile-makapuu" role="img" aria-label="Makapuu Lighthouse Trail Oahu Hawaii"></div>
+          <div class="scene scene-makapuu" role="img" aria-label="Makapuu Lighthouse on cliff with rotating beacon">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Moon/stars -->
+              <circle cx="60" cy="40" r="14" fill="#fff7d6" opacity=".85"/>
+              <circle cx="160" cy="30" r="1" fill="#fff"/>
+              <circle cx="240" cy="50" r="1" fill="#fff"/>
+              <circle cx="320" cy="35" r="1.5" fill="#fff"/>
+              <circle cx="380" cy="60" r="1" fill="#fff"/>
+              <!-- Cliff -->
+              <path d="M0,240 L0,160 L80,140 L160,150 L260,130 L400,140 L400,240 Z" fill="#0a1a25"/>
+              <!-- Lighthouse on cliff -->
+              <g transform="translate(220,135)">
+                <!-- Base -->
+                <rect x="-12" y="-2" width="24" height="6" fill="#5a3225"/>
+                <!-- Tower -->
+                <rect x="-7" y="-40" width="14" height="38" fill="#fff"/>
+                <rect x="-7" y="-40" width="14" height="6" fill="#cc2a30"/>
+                <rect x="-7" y="-22" width="14" height="6" fill="#cc2a30"/>
+                <!-- Top dome -->
+                <rect x="-9" y="-50" width="18" height="10" fill="#003049"/>
+                <circle cx="0" cy="-55" r="3" fill="#003049"/>
+                <!-- Beacon light -->
+                <ellipse class="svg-shine" cx="0" cy="-45" rx="40" ry="6" fill="#fff7d6" opacity=".5"/>
+                <circle class="svg-shine" cx="0" cy="-45" r="4" fill="#fff7d6"/>
+              </g>
+              <!-- Ocean -->
+              <path d="M0,240 L0,200 Q200,196 400,200 L400,240 Z" fill="#0a3d52"/>
+              <path d="M0,220 Q100,216 200,220 T400,220" stroke="#fff" stroke-width="1" fill="none" opacity=".3"/>
+            </svg>
+          </div>
           <span class="badge">Easy Hike</span>
         </div>
         <div class="card-body">
           <h3>Makapuu Lighthouse Trail</h3>
           <p>A paved coastal climb to a lookout with sweeping ocean views. Whale watching is unreal here in winter. Sunrise is even better.</p>
+        </div>
+      </a>
+
+      <a href="#manoa" class="attr-card small fade-in" id="manoa">
+        <div class="card-img">
+          <div class="scene scene-manoa" role="img" aria-label="Manoa Falls waterfall in rainforest">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Cliff backdrop -->
+              <path d="M0,0 L0,200 L100,200 L100,140 L160,80 L240,0 Z" fill="#0a2018"/>
+              <path d="M400,0 L400,200 L300,200 L300,150 L240,90 L200,0 Z" fill="#0a2018"/>
+              <!-- Waterfall -->
+              <rect x="180" y="40" width="40" height="140" fill="#fff" opacity=".85"/>
+              <rect x="185" y="40" width="2" height="140" fill="#fff" opacity=".5"/>
+              <rect x="195" y="40" width="2" height="140" fill="#fff" opacity=".5"/>
+              <rect x="205" y="40" width="2" height="140" fill="#fff" opacity=".5"/>
+              <rect x="213" y="40" width="2" height="140" fill="#fff" opacity=".5"/>
+              <!-- Splash pool -->
+              <ellipse cx="200" cy="180" rx="42" ry="8" fill="#94d2bd" opacity=".6"/>
+              <!-- Mist -->
+              <ellipse cx="200" cy="170" rx="50" ry="6" fill="#fff" opacity=".4"/>
+              <!-- Foliage -->
+              <g class="sea-plant" style="transform-origin:40px 200px"><path d="M40,200 Q30,160 40,130 Q44,170 50,200" stroke="#1f5f3a" stroke-width="3" fill="#2a7d4f"/></g>
+              <g class="sea-plant-2" style="transform-origin:360px 200px"><path d="M360,200 Q370,160 360,130 Q356,170 350,200" stroke="#1f5f3a" stroke-width="3" fill="#2a7d4f"/></g>
+            </svg>
+          </div>
+          <span class="badge">Hidden Gem</span>
+        </div>
+        <div class="card-body">
+          <h3>Manoa Falls</h3>
+          <p>A muddy mile-long jungle walk to a 150-foot ribbon waterfall. Bamboo forests, ginger flowers and the soundtrack of birds the whole way up.</p>
+        </div>
+      </a>
+
+      <a href="#byodo" class="attr-card small fade-in" id="byodo">
+        <div class="card-img">
+          <div class="scene scene-byodo" role="img" aria-label="Byodo-In Temple replica with red walls below pali cliffs">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Pali cliff backdrop -->
+              <path d="M0,90 L60,40 L130,70 L200,30 L270,60 L340,40 L400,80 L400,200 L0,200 Z" fill="#0d2030"/>
+              <!-- Mist -->
+              <ellipse cx="200" cy="90" rx="200" ry="10" fill="#fff" opacity=".15"/>
+              <!-- Temple body -->
+              <g transform="translate(200,180)">
+                <!-- Lower roof -->
+                <path d="M-80,-30 L80,-30 L70,-44 L-70,-44 Z" fill="#ee2030"/>
+                <path d="M-70,-44 L70,-44 L60,-50 L-60,-50 Z" fill="#cc1a25"/>
+                <!-- Walls -->
+                <rect x="-60" y="-30" width="120" height="30" fill="#a8141e"/>
+                <!-- Door -->
+                <rect x="-12" y="-25" width="24" height="25" fill="#2a0a10"/>
+                <!-- Upper section -->
+                <rect x="-30" y="-60" width="60" height="16" fill="#a8141e"/>
+                <path d="M-40,-60 L40,-60 L32,-72 L-32,-72 Z" fill="#ee2030"/>
+                <!-- Spire -->
+                <rect x="-3" y="-80" width="6" height="8" fill="#e9c46a"/>
+                <circle cx="0" cy="-84" r="4" fill="#e9c46a"/>
+                <!-- Steps -->
+                <rect x="-90" y="0" width="180" height="4" fill="#5a4030"/>
+                <rect x="-85" y="-4" width="170" height="4" fill="#7a5540"/>
+              </g>
+              <!-- Reflection pool -->
+              <ellipse cx="200" cy="185" rx="100" ry="3" fill="#94d2bd" opacity=".3"/>
+            </svg>
+          </div>
+          <span class="badge">Culture</span>
+        </div>
+        <div class="card-body">
+          <h3>Byodo-In Temple</h3>
+          <p>A serene Japanese Buddhist temple replica tucked beneath the Ko'olau Mountains. Ring the three-ton brass bell for good luck and feed the koi.</p>
+        </div>
+      </a>
+
+      <a href="#tantalus" class="attr-card small fade-in" id="tantalus">
+        <div class="card-img">
+          <div class="scene scene-tantalus" role="img" aria-label="Tantalus lookout night view over Honolulu city lights">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Sunset sky gradient already from bg, add cloud -->
+              <ellipse cx="80" cy="40" rx="40" ry="8" fill="#fff" opacity=".4"/>
+              <!-- Distant ocean horizon -->
+              <rect x="0" y="100" width="400" height="50" fill="#3a2050"/>
+              <!-- City silhouette / Diamond Head -->
+              <path d="M0,150 L0,135 L40,130 L80,140 L120,128 L150,138 L180,125 L210,140 L240,130 L280,140 L320,128 L370,135 L400,138 L400,150 Z" fill="#1a0a20"/>
+              <!-- City lights -->
+              <g fill="#fff7d6">
+                <circle cx="50" cy="138" r=".8"/><circle cx="78" cy="142" r=".8"/><circle cx="110" cy="135" r=".8"/>
+                <circle cx="148" cy="140" r=".8"/><circle cx="180" cy="132" r=".8"/><circle cx="215" cy="142" r=".8"/>
+                <circle cx="250" cy="135" r=".8"/><circle cx="285" cy="143" r=".8"/><circle cx="320" cy="134" r=".8"/>
+              </g>
+              <!-- Foreground silhouette -->
+              <path d="M0,200 L0,160 Q200,154 400,160 L400,200 Z" fill="#0a0510"/>
+            </svg>
+          </div>
+          <span class="badge">Viewpoint</span>
+        </div>
+        <div class="card-body">
+          <h3>Tantalus Lookout</h3>
+          <p>A twisty rainforest drive up Round Top Drive leads to Pu'u Ualaka'a — the best free overlook of Honolulu, Diamond Head and the Pacific. Magical at sunset.</p>
+        </div>
+      </a>
+
+      <a href="#iolani" class="attr-card medium fade-in" id="iolani">
+        <div class="card-img">
+          <div class="scene scene-iolani" role="img" aria-label="Iolani Palace the only royal palace in the United States">
+            <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <g class="svg-sun" style="transform-origin:340px 50px"><circle cx="340" cy="50" r="22" fill="#fff" opacity=".7"/></g>
+              <g class="svg-cloud"><ellipse cx="80" cy="50" rx="40" ry="9" fill="#fff" opacity=".6"/></g>
+              <!-- Palace building -->
+              <g transform="translate(200,200)">
+                <!-- Lawn -->
+                <rect x="-180" y="0" width="380" height="40" fill="#2a7d4f"/>
+                <!-- Main building -->
+                <rect x="-80" y="-90" width="160" height="90" fill="#f4e0b0"/>
+                <!-- Roof -->
+                <polygon points="-80,-90 80,-90 60,-110 -60,-110" fill="#7a3520"/>
+                <!-- Tower/cupola -->
+                <rect x="-15" y="-130" width="30" height="20" fill="#f4e0b0"/>
+                <polygon points="-15,-130 15,-130 0,-150" fill="#7a3520"/>
+                <!-- Columns -->
+                <rect x="-70" y="-80" width="6" height="60" fill="#fff"/>
+                <rect x="-40" y="-80" width="6" height="60" fill="#fff"/>
+                <rect x="-10" y="-80" width="6" height="60" fill="#fff"/>
+                <rect x="34" y="-80" width="6" height="60" fill="#fff"/>
+                <rect x="64" y="-80" width="6" height="60" fill="#fff"/>
+                <!-- Door -->
+                <rect x="-10" y="-30" width="20" height="30" fill="#4a2a18"/>
+                <!-- Windows -->
+                <rect x="-60" y="-60" width="14" height="20" fill="#0a3d52" opacity=".6"/>
+                <rect x="-30" y="-60" width="14" height="20" fill="#0a3d52" opacity=".6"/>
+                <rect x="20" y="-60" width="14" height="20" fill="#0a3d52" opacity=".6"/>
+                <rect x="46" y="-60" width="14" height="20" fill="#0a3d52" opacity=".6"/>
+                <!-- Flag -->
+                <line x1="0" y1="-150" x2="0" y2="-170" stroke="#3a2218" stroke-width="2"/>
+                <rect x="0" y="-168" width="14" height="9" fill="#cc2a30"/>
+              </g>
+            </svg>
+          </div>
+          <span class="badge">History</span>
+        </div>
+        <div class="card-body">
+          <h3>Iolani Palace</h3>
+          <p>The only royal palace on US soil, home of King Kalakaua and Queen Liliuokalani. Self-guided audio tours walk you through Hawaiian monarchy history room by gilded room.</p>
         </div>
       </a>
     </div>
@@ -1613,6 +2325,15 @@ section{position:relative}
       <span class="script">Sand &amp; sun</span>
       <h2>Best Beaches On Oahu</h2>
       <p>Yes, you can swim with sea turtles. Yes, the water really is that color. Here are the beaches locals actually go to on their days off.</p>
+    </div>
+
+    <!-- Real photo banner -->
+    <div class="photo-banner fade-in" aria-hidden="false">
+      <img src="/images/best-beaches-oahu.jpg" alt="One of the best beaches on Oahu Hawaii with turquoise water and golden sand" loading="lazy" decoding="async" width="1600" height="600">
+      <div class="photo-banner-overlay">
+        <span class="script">Welcome to paradise</span>
+        <h3>Where every beach feels like a postcard</h3>
+      </div>
     </div>
 
     <div class="beaches-grid">
@@ -1669,6 +2390,134 @@ section{position:relative}
       <span class="script">Below the surface</span>
       <h2>Oahu Snorkeling &amp; Diving</h2>
       <p>Some of the world's clearest reef water is waiting. Whether you're a first-time snorkeler or a certified diver, here's where to go.</p>
+    </div>
+
+    <!-- Animated scuba diver scene -->
+    <div class="scuba-scene fade-in" aria-label="Animated illustration of a scuba diver exploring an Oahu reef with bubbles rising from the regulator">
+      <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <!-- Underwater light rays -->
+        <g>
+          <path class="light-ray-1" d="M150,0 L80,300 L220,300 Z" fill="#fff" opacity=".2"/>
+          <path class="light-ray-2" d="M450,0 L380,300 L520,300 Z" fill="#fff" opacity=".15"/>
+          <path class="light-ray-3" d="M750,0 L680,300 L820,300 Z" fill="#fff" opacity=".18"/>
+        </g>
+
+        <!-- Background tropical fish -->
+        <g class="bg-fish">
+          <ellipse cx="0" cy="70" rx="16" ry="6" fill="#f4a261"/>
+          <polygon points="-14,70 -24,66 -24,74" fill="#f4a261"/>
+          <circle cx="6" cy="68" r="1.6" fill="#003049"/>
+          <path d="M-4,68 L4,68" stroke="#003049" stroke-width=".8" opacity=".4"/>
+        </g>
+        <g class="bg-fish-2">
+          <ellipse cx="0" cy="110" rx="12" ry="5" fill="#e9c46a"/>
+          <polygon points="-10,110 -18,107 -18,113" fill="#e9c46a"/>
+          <circle cx="4" cy="109" r="1.3" fill="#003049"/>
+        </g>
+
+        <!-- Sea floor with coral and plants -->
+        <path d="M0,300 L0,260 Q200,250 450,255 T900,260 L900,300 Z" fill="#062a3a"/>
+        <path d="M0,300 L0,278 Q200,272 450,276 T900,278 L900,300 Z" fill="#03161e"/>
+
+        <!-- Sea plants -->
+        <g class="sea-plant" style="transform-origin:80px 270px">
+          <path d="M80,270 Q72,230 82,200 Q86,235 88,270" stroke="#1f5f3a" stroke-width="3" fill="#2a7d4f" stroke-linejoin="round"/>
+          <path d="M80,270 Q92,238 100,220 Q96,245 92,270" stroke="#1f5f3a" stroke-width="2.5" fill="#2a7d4f"/>
+        </g>
+        <g class="sea-plant-2" style="transform-origin:170px 280px">
+          <path d="M170,280 Q160,245 172,215 Q176,250 180,280" stroke="#1a4f3a" stroke-width="3" fill="#2a7d4f"/>
+        </g>
+        <g class="sea-plant" style="transform-origin:780px 275px;animation-delay:-.8s">
+          <path d="M780,275 Q770,235 784,205 Q788,242 790,275" stroke="#1f5f3a" stroke-width="3" fill="#2a7d4f"/>
+          <path d="M780,275 Q792,240 800,220 Q796,248 792,275" stroke="#1f5f3a" stroke-width="2.5" fill="#2a7d4f"/>
+        </g>
+        <g class="sea-plant-2" style="transform-origin:840px 280px;animation-delay:-2s">
+          <path d="M840,280 Q830,248 842,218 Q846,252 850,280" stroke="#1a4f3a" stroke-width="3" fill="#2a7d4f"/>
+        </g>
+
+        <!-- Coral clusters -->
+        <g transform="translate(220,270)">
+          <path d="M0,0 Q4,-22 -6,-32 M10,0 Q16,-28 10,-42 M-12,0 Q-18,-18 -22,-28" stroke="#ee6c4d" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="-6" cy="-32" r="3" fill="#ee6c4d"/>
+          <circle cx="10" cy="-42" r="3" fill="#ee6c4d"/>
+        </g>
+        <g transform="translate(650,275)">
+          <path d="M0,0 Q-6,-18 4,-26 M12,0 Q18,-22 8,-32" stroke="#f4a261" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <circle cx="4" cy="-26" r="3" fill="#f4a261"/>
+        </g>
+        <!-- Brain coral lumps -->
+        <ellipse cx="500" cy="278" rx="22" ry="8" fill="#a86048"/>
+        <ellipse cx="500" cy="276" rx="22" ry="6" fill="#c47058"/>
+
+        <!-- DIVER -->
+        <g class="diver-body" transform="translate(420,140)">
+          <!-- Air tank on back -->
+          <rect x="-78" y="-26" width="20" height="46" rx="6" fill="#1a3540" stroke="#0d2030" stroke-width="1.5"/>
+          <rect x="-72" y="-23" width="8" height="40" rx="3" fill="#264653"/>
+          <!-- Valve on top -->
+          <rect x="-72" y="-32" width="8" height="8" rx="2" fill="#5a6a78"/>
+          <!-- Hose from tank to regulator -->
+          <path d="M-62,-22 Q-30,-30 0,-12 Q24,-2 44,-8" stroke="#1a2530" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Body / wetsuit torso -->
+          <ellipse cx="-10" cy="0" rx="55" ry="22" fill="#0d3a52"/>
+          <ellipse cx="-10" cy="-4" rx="55" ry="18" fill="#0f4a66"/>
+          <!-- Wetsuit accent stripe -->
+          <path d="M-60,-2 Q-10,-12 38,-4" stroke="#0a9396" stroke-width="2" fill="none" opacity=".7"/>
+          <!-- Right arm extended forward -->
+          <ellipse cx="34" cy="6" rx="14" ry="6" fill="#0d3a52" transform="rotate(15 34 6)"/>
+          <!-- Hand -->
+          <circle cx="48" cy="10" r="5" fill="#e9c46a"/>
+          <!-- Head with mask -->
+          <circle cx="42" cy="-10" r="15" fill="#e9c46a"/>
+          <!-- Hair -->
+          <path d="M30,-20 Q42,-26 56,-20 Q52,-23 42,-24 Q34,-22 30,-20" fill="#3a2218"/>
+          <!-- Mask -->
+          <rect x="32" y="-16" width="22" height="11" rx="3" fill="#0a3d52" opacity=".85"/>
+          <rect x="34" y="-14" width="8" height="7" rx="1.5" fill="#94d2bd" opacity=".7"/>
+          <rect x="44" y="-14" width="8" height="7" rx="1.5" fill="#94d2bd" opacity=".7"/>
+          <!-- Mask strap -->
+          <path d="M32,-10 L26,-12 M54,-10 L60,-12" stroke="#0a3d52" stroke-width="2"/>
+          <!-- Regulator mouthpiece -->
+          <rect x="50" y="-2" width="8" height="6" rx="2" fill="#1a2530"/>
+          <circle cx="62" cy="0" r="4" fill="#2a3540"/>
+          <!-- Hose from regulator going up -->
+          <path d="M60,-2 Q66,-12 70,-22" stroke="#1a2530" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Legs in fins -->
+          <g class="fin-top">
+            <ellipse cx="-90" cy="-12" rx="10" ry="6" fill="#0d3a52"/>
+            <polygon points="-100,-18 -78,-12 -100,-6" fill="#ee6c4d"/>
+            <polygon points="-99,-17 -82,-12 -99,-7" fill="#f4a261" opacity=".6"/>
+          </g>
+          <g class="fin-bot">
+            <ellipse cx="-90" cy="12" rx="10" ry="6" fill="#0d3a52"/>
+            <polygon points="-100,6 -78,12 -100,18" fill="#ee6c4d"/>
+            <polygon points="-99,7 -82,12 -99,17" fill="#f4a261" opacity=".6"/>
+          </g>
+          <!-- BCD strap -->
+          <line x1="-10" y1="-18" x2="-10" y2="18" stroke="#1a2530" stroke-width="1.5" opacity=".7"/>
+        </g>
+
+        <!-- BUBBLES rising from regulator (start ~ x=485, y=130) -->
+        <g>
+          <circle class="bubble bubble-1" cx="485" cy="125" r="4" fill="#fff" opacity=".85"/>
+          <circle class="bubble bubble-2" cx="492" cy="128" r="5" fill="#fff" opacity=".75"/>
+          <circle class="bubble bubble-3" cx="480" cy="124" r="6" fill="#fff" opacity=".7"/>
+          <circle class="bubble bubble-4" cx="495" cy="130" r="3" fill="#fff" opacity=".8"/>
+          <circle class="bubble bubble-5" cx="488" cy="126" r="7" fill="#fff" opacity=".6"/>
+          <circle class="bubble bubble-6" cx="482" cy="129" r="4" fill="#fff" opacity=".75"/>
+          <circle class="bubble bubble-7" cx="498" cy="124" r="5" fill="#fff" opacity=".7"/>
+          <circle class="bubble bubble-8" cx="486" cy="131" r="3.5" fill="#fff" opacity=".8"/>
+        </g>
+
+        <!-- A single tropical fish swimming near the diver for life -->
+        <g class="bg-fish" style="animation-duration:13s;animation-delay:-5s">
+          <ellipse cx="0" cy="200" rx="14" ry="6" fill="#94d2bd"/>
+          <polygon points="-12,200 -22,196 -22,204" fill="#94d2bd"/>
+          <circle cx="6" cy="198" r="1.4" fill="#003049"/>
+          <path d="M-4,198 L4,198" stroke="#003049" stroke-width=".8" opacity=".4"/>
+        </g>
+      </svg>
+      <span class="caption">Aloha from 60 feet down 🐠</span>
     </div>
 
     <div class="adventure-split">
@@ -1795,6 +2644,86 @@ section{position:relative}
 </section>
 
 <!-- ============================================================
+     HAWAII TRAVEL NETWORK — themed grid (not link farm)
+     ============================================================ -->
+<section class="section-pad network-section" id="network">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="script">From our travel network</span>
+      <h2>The Bigger Hawaii Picture</h2>
+      <p>Attractions Oahu is part of a growing family of independent Hawaii travel resources. Each site goes deep on one thing — diving, real estate, restaurants, attractions — so you don't have to bounce around generic listicles.</p>
+    </div>
+
+    <div class="network-grid">
+      <div class="network-card net-do fade-in">
+        <div class="net-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+        </div>
+        <h3>Things To Do &amp; See</h3>
+        <p class="net-sub">Attractions across the islands</p>
+        <ul>
+          <li><a href="https://www.attractionhawaii.com" target="_blank" rel="noopener">attractionhawaii.com</a></li>
+          <li><a href="https://www.bestthingstodoinoahu.com" target="_blank" rel="noopener">bestthingstodoinoahu.com</a></li>
+          <li><a href="https://www.thingstodoinmauihawaii.com" target="_blank" rel="noopener">thingstodoinmauihawaii.com</a></li>
+          <li><a href="https://www.bestbeacheshawaii.com" target="_blank" rel="noopener">bestbeacheshawaii.com</a></li>
+        </ul>
+      </div>
+
+      <div class="network-card net-dive fade-in">
+        <div class="net-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><circle cx="6" cy="6" r="2"/></svg>
+        </div>
+        <h3>Dive &amp; Snorkel</h3>
+        <p class="net-sub">Reefs, wrecks &amp; dive shops</p>
+        <ul>
+          <li><a href="https://www.bestdivinghawaii.com" target="_blank" rel="noopener">bestdivinghawaii.com</a></li>
+          <li><a href="https://www.bestdivinginoahu.com" target="_blank" rel="noopener">bestdivinginoahu.com</a></li>
+          <li><a href="https://www.besthawaiisnorkeling.com" target="_blank" rel="noopener">besthawaiisnorkeling.com</a></li>
+          <li><a href="https://www.bestscubadivinginkauai.com" target="_blank" rel="noopener">bestscubadivinginkauai.com</a></li>
+          <li><a href="https://www.bestscubadivinginmaui.com" target="_blank" rel="noopener">bestscubadivinginmaui.com</a></li>
+          <li><a href="https://www.hawaiidiveshops.com" target="_blank" rel="noopener">hawaiidiveshops.com</a></li>
+          <li><a href="https://www.hawaiiscubashops.com" target="_blank" rel="noopener">hawaiiscubashops.com</a></li>
+          <li><a href="https://www.kauaidiveshops.com" target="_blank" rel="noopener">kauaidiveshops.com</a></li>
+        </ul>
+      </div>
+
+      <div class="network-card net-eat fade-in">
+        <div class="net-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18M7 3v8a4 4 0 0 1-4 4M17 3l4 6h-4v12M17 9V3"/></svg>
+        </div>
+        <h3>Eat &amp; Drink</h3>
+        <p class="net-sub">The best tables on the islands</p>
+        <ul>
+          <li><a href="https://www.bestrestaurantsinoahu.com" target="_blank" rel="noopener">bestrestaurantsinoahu.com</a></li>
+          <li><a href="https://www.restauranthonolulu.com" target="_blank" rel="noopener">restauranthonolulu.com</a></li>
+          <li><a href="https://www.restaurantmaui.com" target="_blank" rel="noopener">restaurantmaui.com</a></li>
+          <li><a href="https://www.restaurantsoahu.com" target="_blank" rel="noopener">restaurantsoahu.com</a></li>
+        </ul>
+      </div>
+
+      <div class="network-card net-stay fade-in">
+        <div class="net-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+        </div>
+        <h3>Move To Hawaii</h3>
+        <p class="net-sub">Real estate &amp; condos</p>
+        <ul>
+          <li><a href="https://www.buycondohawaii.com" target="_blank" rel="noopener">buycondohawaii.com</a></li>
+          <li><a href="https://www.buyhousehawaii.com" target="_blank" rel="noopener">buyhousehawaii.com</a></li>
+          <li><a href="https://www.buyhousekauai.com" target="_blank" rel="noopener">buyhousekauai.com</a></li>
+          <li><a href="https://www.kauaihirealestate.com" target="_blank" rel="noopener">kauaihirealestate.com</a></li>
+          <li><a href="https://www.kauaipropertyforsale.com" target="_blank" rel="noopener">kauaipropertyforsale.com</a></li>
+          <li><a href="https://www.ohaurealestate.com" target="_blank" rel="noopener">ohaurealestate.com</a></li>
+          <li><a href="https://www.realestateforsalekauai.com" target="_blank" rel="noopener">realestateforsalekauai.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="network-note">Independently built and maintained. We don't take commissions for these listings — they're here so visitors can plan a real trip and so locals can find each other.</p>
+  </div>
+</section>
+
+<!-- ============================================================
      PARTNER ADS — Eye To Ad Media + Big Island SEO
      ============================================================ -->
 <section class="section-pad partner-ads">
@@ -1827,7 +2756,7 @@ section{position:relative}
       </div>
 
       <div class="ad-block ad-bigisland fade-in">
-        <span class="tag">Sister Site</span>
+        <span class="tag">Network Partner</span>
         <h3>Ranking On The <a href="https://www.bigislandseo.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">Big Island SEO</a> Scene</h3>
         <p>If your business is on Hawai'i Island, you need a partner who knows the lava, the lattes and the local search landscape. Big Island SEO is our specialist arm for Kona, Hilo, Waikoloa and every coffee farm in between.</p>
         <ul class="services-list">
@@ -2039,7 +2968,12 @@ section{position:relative}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="/images/attractions-oahu-logo.png" alt="Attractions Oahu logo" width="60" height="60">
+        <div class="footer-mark">
+          <div class="mark-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c1.5 2 3 4 3 6.5S13.5 13 12 13s-3-2-3-4.5S10.5 4 12 2zM5 10c2 .5 4 1.5 5 3.5S9 17 7.5 17 4 15.5 4 13.5 3 9.5 5 10zM19 10c2-.5 1 3.5 1 3.5s.5 3.5-1.5 3.5S15 16 14 13.5 17 9.5 19 10zM8 17c1 1.5 2.5 3 4 3s3-1.5 4-3-2-2-4-2-5 .5-4 2z"/><circle cx="12" cy="12" r="1.8" fill="#fff7d6"/></svg>
+          </div>
+          <div class="mark-text">Attractions Oahu<span class="tag">Aloha &amp; Insider Tips</span></div>
+        </div>
         <p>Your insider guide to the best attractions, beaches, hikes and hidden gems on Oahu, Hawaii. Built with aloha. Powered by <a href="https://www.eyetoad.com" target="_blank" rel="noopener" style="color:var(--lagoon);font-weight:600">Eye To Ad Media</a>.</p>
       </div>
 
