@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://www.attractionsoahu.com/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.attractionsoahu.com/images/attractions-oahu.jpg</image:loc>
+      <image:title>Attractions Oahu — top things to do on Oahu, Hawaii</image:title>
+      <image:caption>Discover the best attractions on Oahu, Hawaii</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.attractionsoahu.com/images/oahu-attractions.jpg</image:loc>
+      <image:title>Best Oahu attractions and Hawaiian sights</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.attractionsoahu.com/images/best-beaches-oahu.jpg</image:loc>
+      <image:title>Best beaches on Oahu Hawaii</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.attractionsoahu.com/things-to-do/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.attractionsoahu.com/images/things-to-do-oahu.jpg</image:loc>
+      <image:title>Things to do on Oahu Hawaii</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.attractionsoahu.com/sitemap.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
