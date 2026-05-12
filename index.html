@@ -10,8 +10,8 @@
      Secondary: things to do oahu, places to visit oahu, oahu attractions,
                 best beaches oahu, oahu snorkeling, oahu diving, oahu hikes
      ============================================================ -->
-<title>Attractions Oahu | Best Things To Do, Beaches & Places To Visit On Oahu, Hawaii 2026</title>
-<meta name="description" content="Discover the best attractions Oahu has to offer — beaches, snorkeling, hikes, luaus, Pearl Harbor and hidden gems. Plan your Oahu Hawaii bucket list with insider tips, maps and our drag-and-drop trip builder.">
+<title>Attractions Oahu | Oahu Attractions, Best Things To Do, Beaches &amp; Snorkeling On Oahu Hawaii 2026</title>
+<meta name="description" content="Attractions Oahu is the locals' guide to Oahu attractions — the best things to do, beaches, snorkeling, hikes, luaus, Pearl Harbor and hidden gems on Oahu, Hawaii. Plan your Oahu bucket list with insider tips, maps and our drag-and-drop trip builder.">
 <meta name="keywords" content="attractions oahu, things to do oahu, oahu attractions, places to visit oahu, best beaches oahu, oahu snorkeling, oahu diving, oahu hikes, oahu hawaii, oahu bucket list, north shore oahu, waikiki, pearl harbor, hanauma bay, diamond head, oahu tourist attractions">
 <meta name="author" content="Attractions Oahu">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -23,8 +23,8 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Attractions Oahu | Best Things To Do & Places To Visit On Oahu, Hawaii">
-<meta property="og:description" content="Your insider guide to the best attractions Oahu offers — beaches, snorkeling, hikes, luaus, Pearl Harbor and the hidden gems locals love.">
+<meta property="og:title" content="Attractions Oahu | Oahu Attractions, Best Things To Do & Places To Visit On Oahu, Hawaii">
+<meta property="og:description" content="Your insider guide to Oahu attractions — beaches, snorkeling, hikes, luaus, Pearl Harbor and the hidden gems locals love.">
 <meta property="og:url" content="https://www.attractionsoahu.com/">
 <meta property="og:image" content="https://www.attractionsoahu.com/images/attractions-oahu.jpg">
 <meta property="og:image:alt" content="Attractions Oahu — turquoise water and palm trees on Oahu, Hawaii">
@@ -33,8 +33,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Attractions Oahu | Best Things To Do On Oahu, Hawaii">
-<meta name="twitter:description" content="Insider Oahu travel guide: beaches, hikes, snorkeling, luaus, hidden gems and a drag-and-drop bucket list builder.">
+<meta name="twitter:title" content="Attractions Oahu | Oahu Attractions & Best Things To Do On Oahu, Hawaii">
+<meta name="twitter:description" content="Insider Oahu attractions guide: beaches, hikes, snorkeling, luaus, hidden gems and a drag-and-drop bucket list builder.">
 <meta name="twitter:image" content="https://www.attractionsoahu.com/images/attractions-oahu.jpg">
 
 <!-- Favicon -->
@@ -1239,92 +1239,111 @@ section{position:relative}
 /* ============================================================
    ADS — Eye To Ad Media & Big Island SEO
    ============================================================ */
-.partner-ads{
-  background:linear-gradient(180deg,var(--foam) 0%,#eaf4f3 100%);
+/* ============================================================
+   ADS — Eye To Ad Media (featured) + Big Island SEO (separated)
+   New design: rectangular, separated, with SVG attention-getters
+   ============================================================ */
+.featured-ad-section{padding:80px 0;background:linear-gradient(180deg,var(--foam) 0%,#eaf4f3 100%);position:relative;overflow:hidden}
+
+/* Eye To Ad Media — featured full-width banner */
+.eyetoad-banner{
   position:relative;
+  background:linear-gradient(135deg,#001f2f 0%,#003049 35%,#005f73 70%,#0a9396 100%);
+  border-radius:4px;
   overflow:hidden;
-}
-.ads-grid{
   display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:30px;
+  grid-template-columns:1.3fr 1fr;
+  gap:0;
+  box-shadow:0 30px 80px rgba(0,48,73,.25);
+  min-height:480px;
 }
-.ad-block{
-  border-radius:var(--r-lg);
-  padding:50px 44px;
-  position:relative;
-  overflow:hidden;
-  box-shadow:var(--shadow-medium);
+.eyetoad-banner::before{
+  content:"";position:absolute;top:0;right:0;width:60%;height:100%;
+  background:radial-gradient(ellipse at center,rgba(244,162,97,.18),transparent 65%);
+  pointer-events:none;
 }
-.ad-eyetoad{
-  background:linear-gradient(135deg,#003049 0%,#005f73 50%,#0a9396 100%);
-  color:#fff;
-}
-.ad-bigisland{
-  background:linear-gradient(135deg,#264653 0%,#e76f51 100%);
-  color:#fff;
-}
-.ad-block .tag{
-  display:inline-block;
-  font-size:.7rem;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  padding:6px 14px;
-  border-radius:999px;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.25);
-  margin-bottom:18px;
-}
-.ad-block h3{color:#fff;margin-bottom:14px}
-.ad-block p{color:rgba(255,255,255,.92);margin-bottom:20px}
-.ad-block .services-list{
-  list-style:none;
-  padding:0;
-  margin:0 0 26px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-.ad-block .services-list li{
-  font-size:.92rem;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  color:rgba(255,255,255,.95);
-}
-.ad-block .services-list li::before{
-  content:"✓";
-  width:18px;height:18px;
-  background:rgba(255,255,255,.2);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:.7rem;
-  font-weight:700;
-  flex-shrink:0;
-}
-.ad-cta{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  background:#fff;
-  color:var(--deep-ocean);
-  padding:14px 28px;
-  border-radius:999px;
-  font-weight:700;
-  text-decoration:none;
-  transition:all .25s ease;
-}
-.ad-cta:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.25);color:var(--coral)}
-.ad-bigisland .ad-cta{color:var(--hibiscus)}
+.eyetoad-left{padding:60px 56px;color:#fff;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}
+.eyetoad-left .ad-eyebrow{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.22em;background:var(--sunset);color:var(--deep-ocean);padding:6px 14px;margin-bottom:22px;align-self:flex-start}
+.eyetoad-left h3{font-family:var(--serif);color:#fff;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;margin-bottom:18px;letter-spacing:-.01em}
+.eyetoad-left h3 .highlight{background:linear-gradient(135deg,var(--sunset),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.eyetoad-left .ad-sub{color:rgba(255,255,255,.85);font-size:1.05rem;margin-bottom:28px;max-width:480px;line-height:1.55}
+.eyetoad-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px;max-width:520px}
+.eyetoad-stat{padding:14px 0;border-top:2px solid rgba(244,162,97,.6);position:relative}
+.eyetoad-stat .num{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--sunset);line-height:1;display:block;margin-bottom:4px}
+.eyetoad-stat .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.75);line-height:1.3}
+.eyetoad-cta{display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:#fff;padding:16px 30px;border-radius:4px;font-weight:700;font-size:.98rem;letter-spacing:.02em;text-decoration:none;transition:all .25s ease;align-self:flex-start;box-shadow:0 8px 24px rgba(238,108,77,.4)}
+.eyetoad-cta:hover{background:var(--sunset);color:var(--deep-ocean);transform:translateY(-2px);box-shadow:0 12px 30px rgba(244,162,97,.5)}
+.eyetoad-cta svg{width:16px;height:16px}
+.eyetoad-right{position:relative;background:rgba(255,255,255,.04);backdrop-filter:blur(10px);border-left:1px solid rgba(255,255,255,.1);padding:54px 44px;display:flex;flex-direction:column;justify-content:center;z-index:2}
+.eyetoad-podium{margin:0 auto 24px;display:block}
+.eyetoad-right h4{color:#fff;font-family:var(--serif);font-size:1.3rem;margin-bottom:16px;text-align:center}
+.eyetoad-services{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:9px}
+.eyetoad-services li{font-size:.92rem;color:rgba(255,255,255,.92);display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.1)}
+.eyetoad-services li:last-child{border-bottom:none}
+.eyetoad-services li::before{content:"→";color:var(--sunset);font-weight:800;font-size:1rem;flex-shrink:0}
 @media (max-width:880px){
-  .ads-grid{grid-template-columns:1fr}
-  .ad-block .services-list{grid-template-columns:1fr}
-  .ad-block{padding:36px 30px}
+  .eyetoad-banner{grid-template-columns:1fr}
+  .eyetoad-left{padding:44px 32px}
+  .eyetoad-right{padding:32px;border-left:none;border-top:1px solid rgba(255,255,255,.1)}
+  .eyetoad-stat .num{font-size:1.4rem}
 }
+@media (max-width:520px){
+  .eyetoad-stats{grid-template-columns:1fr 1fr;gap:10px}
+}
+
+/* Big Island SEO — separated, sales-chart visual, different style/location */
+.bigisland-ad-strip{padding:70px 0;background:#fff8f1;position:relative;overflow:hidden}
+.bigisland-ad-strip::before{content:"";position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at top right,rgba(231,111,81,.12),transparent 60%);pointer-events:none}
+.bigisland-banner{position:relative;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:0;background:#fff;border:none;border-left:8px solid var(--hibiscus);box-shadow:0 20px 50px rgba(38,70,83,.15);overflow:hidden}
+.bigisland-left{padding:48px 40px;background:linear-gradient(135deg,#264653 0%,#3a5765 100%);color:#fff;position:relative}
+.bigisland-left .ad-tag{display:inline-block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.2em;background:var(--hibiscus);color:#fff;padding:5px 12px;margin-bottom:16px}
+.bigisland-left h3{color:#fff;font-family:var(--serif);font-size:1.7rem;line-height:1.15;margin-bottom:12px;letter-spacing:-.01em}
+.bigisland-left h3 .lava{color:#f4a261}
+.bigisland-left p{color:rgba(255,255,255,.88);font-size:.96rem;margin-bottom:20px;max-width:380px}
+.bigisland-features{list-style:none;padding:0;margin:0 0 24px;font-size:.85rem;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.bigisland-features li{color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px}
+.bigisland-features li::before{content:"●";color:var(--coral);font-size:.6rem}
+.bigisland-cta{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;padding:14px 26px;border-radius:4px;font-weight:700;font-size:.92rem;text-decoration:none;transition:all .25s ease;align-self:flex-start;box-shadow:0 8px 20px rgba(238,108,77,.3)}
+.bigisland-cta:hover{background:#fff;color:var(--deep-ocean);transform:translateY(-2px)}
+.bigisland-cta svg{width:14px;height:14px}
+.bigisland-right{padding:40px 36px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,#fff 0%,#fef6ee 100%)}
+.bigisland-chart-title{font-family:var(--sans);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--soft-ink);margin-bottom:6px}
+.bigisland-chart-big{font-family:var(--serif);font-size:2.6rem;font-weight:700;color:var(--hibiscus);line-height:1;margin-bottom:4px;display:flex;align-items:baseline;gap:6px}
+.bigisland-chart-big .pct-arrow{font-size:1.4rem;color:var(--turquoise)}
+.bigisland-chart-sub{font-size:.85rem;color:var(--soft-ink);margin-bottom:18px}
+.bigisland-chart{width:100%;height:auto;display:block;max-height:220px}
+.bigisland-chart .chart-line{stroke-dasharray:600;stroke-dashoffset:600;animation:drawLine 2.4s ease-out forwards}
+.bigisland-chart .chart-bar{transform-origin:bottom;animation:growBar 1s ease-out forwards;opacity:0}
+.bigisland-chart .chart-bar.b1{animation-delay:.2s}
+.bigisland-chart .chart-bar.b2{animation-delay:.4s}
+.bigisland-chart .chart-bar.b3{animation-delay:.6s}
+.bigisland-chart .chart-bar.b4{animation-delay:.8s}
+.bigisland-chart .chart-bar.b5{animation-delay:1s}
+.bigisland-chart .chart-bar.b6{animation-delay:1.2s}
+.bigisland-chart .chart-dot{opacity:0;animation:popIn .4s ease-out forwards}
+.bigisland-chart .chart-dot.d1{animation-delay:1.4s}
+.bigisland-chart .chart-dot.d2{animation-delay:1.6s}
+.bigisland-chart .chart-dot.d3{animation-delay:1.8s}
+.bigisland-chart .chart-dot.d4{animation-delay:2s}
+.bigisland-chart .chart-dot.d5{animation-delay:2.2s}
+.bigisland-chart .chart-dot.d6{animation-delay:2.4s}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+@keyframes growBar{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
+@keyframes popIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@media (max-width:780px){
+  .bigisland-banner{grid-template-columns:1fr;border-left-width:6px}
+  .bigisland-left,.bigisland-right{padding:32px 24px}
+}
+@media (max-width:520px){
+  .bigisland-features{grid-template-columns:1fr}
+}
+
+/* Contact section: click-to-call strip + form polish */
+.contact-section .form-call-strip{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;padding:18px 22px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);border-radius:4px;max-width:760px;margin-left:auto;margin-right:auto}
+.contact-section .form-call-strip .ctc-label{font-size:.9rem;color:rgba(255,255,255,.78)}
+.contact-section .form-call-strip .ctc-btn{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;padding:11px 22px;border-radius:4px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .25s ease;letter-spacing:.02em}
+.contact-section .form-call-strip .ctc-btn:hover{background:#fff;color:var(--deep-ocean);transform:translateY(-1px)}
+.contact-section .form-call-strip .ctc-btn svg{width:14px;height:14px}
 
 /* ============================================================
    TIPS / INSIDER STRIP
@@ -1628,7 +1647,7 @@ section{position:relative}
       <li><a href="#snorkel">Snorkel &amp; Dive</a></li>
       <li><a href="#builder">Bucket List</a></li>
       <li><a href="/things-to-do/">More To Do</a></li>
-      <li><a href="#contact" class="cta-btn">Plan My Trip</a></li>
+      <li><a href="#contact" class="cta-btn">Advertise</a></li>
     </ul>
   </div>
 </header>
@@ -2449,8 +2468,8 @@ section{position:relative}
         <ellipse cx="500" cy="278" rx="22" ry="8" fill="#a86048"/>
         <ellipse cx="500" cy="276" rx="22" ry="6" fill="#c47058"/>
 
-        <!-- DIVER -->
-        <g class="diver-body" transform="translate(420,140)">
+        <!-- DIVER (outer group holds position; inner group gets the float animation so CSS transform doesn't override the translate) -->
+        <g transform="translate(420,140)"><g class="diver-body">
           <!-- Air tank on back -->
           <rect x="-78" y="-26" width="20" height="46" rx="6" fill="#1a3540" stroke="#0d2030" stroke-width="1.5"/>
           <rect x="-72" y="-23" width="8" height="40" rx="3" fill="#264653"/>
@@ -2495,7 +2514,7 @@ section{position:relative}
           </g>
           <!-- BCD strap -->
           <line x1="-10" y1="-18" x2="-10" y2="18" stroke="#1a2530" stroke-width="1.5" opacity=".7"/>
-        </g>
+        </g></g>
 
         <!-- BUBBLES rising from regulator (start ~ x=485, y=130) -->
         <g>
@@ -2724,51 +2743,69 @@ section{position:relative}
 </section>
 
 <!-- ============================================================
-     PARTNER ADS — Eye To Ad Media + Big Island SEO
+     FEATURED AD — Eye To Ad Media (Big Island SEO ad is placed
+     separately, AFTER the Insider Tips section, so the two ads
+     are visually and structurally apart on the page.)
      ============================================================ -->
-<section class="section-pad partner-ads">
+<section class="section-pad featured-ad-section" id="advertise-eyetoad">
   <div class="container">
     <div class="section-head fade-in">
-      <span class="script">Local Hawaii marketing partners</span>
-      <h2>Run A Hawaii Business? Let's Grow It.</h2>
-      <p>Attractions Oahu is proudly powered by Eye To Ad Media — and we partner with the best in Hawaii digital marketing.</p>
+      <span class="script">Hawaii's conversion-first agency</span>
+      <h2>Get Found. Get Booked. Get Paid.</h2>
+      <p>Attractions Oahu is powered by Eye To Ad Media — Hawaii's only SEO agency built around conversions, not just rankings.</p>
     </div>
-
-    <div class="ads-grid">
-      <div class="ad-block ad-eyetoad fade-in">
-        <span class="tag">Featured Partner</span>
-        <h3><a href="https://www.eyetoad.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">Eye To Ad Media</a> — Conversion-Optimized <a href="https://www.eyetoad.com" target="_blank" rel="noopener" style="color:#fff">Hawaii SEO</a></h3>
-        <p>We don't just rank you. We turn your traffic into customers. Eye To Ad Media specializes in conversion rate optimization built on a deep SEO, AIO and GEO foundation — so the visitors you earn actually book, call, or buy. Hawaii tourism is competitive. We help you win it.</p>
-        <ul class="services-list">
-          <li>SEO &amp; AI Search Optimization</li>
-          <li>Conversion-Rate Optimization</li>
-          <li>Website Design &amp; Development</li>
-          <li>Google &amp; Meta PPC Ads</li>
-          <li>Programmatic Display Advertising</li>
-          <li>Logo &amp; Brand Identity Design</li>
-          <li>Content &amp; Copywriting</li>
-          <li>Local Map Pack Domination</li>
-        </ul>
-        <a href="https://www.eyetoad.com" target="_blank" rel="noopener" class="ad-cta">
-          See Our Work
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    <div class="eyetoad-banner fade-in">
+      <div class="eyetoad-left">
+        <span class="ad-eyebrow">Featured Hawaii Partner</span>
+        <h3>From Page 8 To <span class="highlight">Page 1.</span><br>From Tourists To Customers.</h3>
+        <p class="ad-sub">We don't chase keywords. We engineer the full path — SEO, AI Overview optimization, fast modern sites and conversion-rate testing — so the visitors you earn actually book, call or buy.</p>
+        <div class="eyetoad-stats">
+          <div class="eyetoad-stat"><span class="num">+247%</span><span class="lbl">Avg organic traffic lift, year one</span></div>
+          <div class="eyetoad-stat"><span class="num">$87</span><span class="lbl">Avg revenue per $1 in spend</span></div>
+          <div class="eyetoad-stat"><span class="num">#1</span><span class="lbl">Hawaii tourism SEO niche</span></div>
+        </div>
+        <a href="https://www.eyetoad.com" target="_blank" rel="noopener" class="eyetoad-cta">
+          See Our Hawaii Case Studies
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
-
-      <div class="ad-block ad-bigisland fade-in">
-        <span class="tag">Network Partner</span>
-        <h3>Ranking On The <a href="https://www.bigislandseo.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">Big Island SEO</a> Scene</h3>
-        <p>If your business is on Hawai'i Island, you need a partner who knows the lava, the lattes and the local search landscape. Big Island SEO is our specialist arm for Kona, Hilo, Waikoloa and every coffee farm in between.</p>
-        <ul class="services-list">
-          <li>Hilo &amp; Kona SEO</li>
-          <li>Tourism-Focused Strategy</li>
-          <li>Volcano-Area Outreach</li>
-          <li>AI Overview Optimization</li>
+      <div class="eyetoad-right">
+        <svg class="eyetoad-podium" width="240" height="180" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Sunburst rays behind -->
+          <g opacity=".35">
+            <path d="M120,20 L130,60 L110,60 Z" fill="#f4a261"/>
+            <path d="M55,55 L88,68 L78,86 Z" fill="#f4a261"/>
+            <path d="M185,55 L152,68 L162,86 Z" fill="#f4a261"/>
+          </g>
+          <!-- 2nd place -->
+          <rect x="40" y="105" width="55" height="55" fill="rgba(148,210,189,.65)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+          <text x="67.5" y="142" text-anchor="middle" font-family="Fraunces, serif" font-size="22" font-weight="700" fill="#003049">2</text>
+          <!-- 1st place (you) -->
+          <rect x="95" y="70" width="55" height="90" fill="#f4a261" stroke="#fff" stroke-width="1.5"/>
+          <text x="122.5" y="120" text-anchor="middle" font-family="Fraunces, serif" font-size="32" font-weight="800" fill="#003049">1</text>
+          <!-- Trophy on top of #1 -->
+          <g transform="translate(122.5,52)">
+            <ellipse cx="0" cy="0" rx="14" ry="6" fill="rgba(0,0,0,.2)"/>
+            <path d="M-8,-4 L-8,-10 L-12,-10 L-12,-2 Q-12,4 -8,4 M8,-4 L8,-10 L12,-10 L12,-2 Q12,4 8,4" stroke="#f4a261" stroke-width="2" fill="none"/>
+            <rect x="-8" y="-14" width="16" height="14" rx="1" fill="#f7c170"/>
+            <rect x="-10" y="-16" width="20" height="3" fill="#fff"/>
+            <text y="-5" text-anchor="middle" font-size="10" font-weight="700" fill="#003049">★</text>
+          </g>
+          <!-- 3rd place -->
+          <rect x="150" y="120" width="55" height="40" fill="rgba(238,108,77,.55)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+          <text x="177.5" y="148" text-anchor="middle" font-family="Fraunces, serif" font-size="20" font-weight="700" fill="#fff">3</text>
+          <!-- Floor -->
+          <line x1="20" y1="160" x2="220" y2="160" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+        </svg>
+        <h4>What's Included</h4>
+        <ul class="eyetoad-services">
+          <li>SEO + AI Overview Optimization</li>
+          <li>Conversion-Rate Optimization</li>
+          <li>Modern Web Design &amp; Build</li>
+          <li>Google + Meta PPC Campaigns</li>
+          <li>Local Map Pack Domination</li>
+          <li>Content &amp; Copywriting</li>
         </ul>
-        <a href="https://www.bigislandseo.com" target="_blank" rel="noopener" class="ad-cta">
-          Visit Big Island SEO
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
       </div>
     </div>
   </div>
@@ -2809,6 +2846,76 @@ section{position:relative}
       <div class="tip-card fade-in">
         <h3>🍍 Eat where the locals eat</h3>
         <p>Foodland's poke bar. Leonard's malasadas. Rainbow Drive-In. The shrimp trucks. Skip the chain restaurants. The best meals on Oahu cost twelve dollars.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BIG ISLAND SEO AD — separated from Eye To Ad Media, with
+     animated bars + line chart showing sales/traffic growth
+     ============================================================ -->
+<section class="bigisland-ad-strip" id="advertise-bigisland">
+  <div class="container">
+    <div class="bigisland-banner fade-in">
+      <div class="bigisland-left">
+        <span class="ad-tag">Network Partner · Big Island</span>
+        <h3>Rank On The <span class="lava">Big Island.</span><br>Watch The Sales Follow.</h3>
+        <p>If your business is on Hawai'i Island, Big Island SEO is our specialist arm for Kona, Hilo, Waikoloa and every coffee farm in between. Same conversion-first playbook, tuned for the volcano coast.</p>
+        <ul class="bigisland-features">
+          <li>Hilo &amp; Kona SEO</li>
+          <li>Tourism-Focused Strategy</li>
+          <li>Volcano-Area Outreach</li>
+          <li>AI Overview Optimization</li>
+          <li>Resort &amp; Tour Operators</li>
+          <li>Coffee Farm Marketing</li>
+        </ul>
+        <a href="https://www.bigislandseo.com" target="_blank" rel="noopener" class="bigisland-cta">
+          Get Big Island Rankings
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="bigisland-right">
+        <div class="bigisland-chart-title">Avg Client Result · 12 Months</div>
+        <div class="bigisland-chart-big">+340%<span class="pct-arrow">↑</span></div>
+        <div class="bigisland-chart-sub">Organic traffic &amp; revenue growth, year over year.</div>
+        <svg class="bigisland-chart" viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" aria-label="Animated chart showing growing monthly revenue for Big Island SEO clients">
+          <!-- Grid lines -->
+          <line x1="30" y1="20" x2="410" y2="20" stroke="#eee" stroke-width="1"/>
+          <line x1="30" y1="55" x2="410" y2="55" stroke="#eee" stroke-width="1"/>
+          <line x1="30" y1="90" x2="410" y2="90" stroke="#eee" stroke-width="1"/>
+          <line x1="30" y1="125" x2="410" y2="125" stroke="#eee" stroke-width="1"/>
+          <!-- Y-axis labels -->
+          <text x="22" y="24" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">$50k</text>
+          <text x="22" y="59" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">$30k</text>
+          <text x="22" y="94" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">$15k</text>
+          <text x="22" y="129" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">$5k</text>
+          <!-- Baseline -->
+          <line x1="30" y1="150" x2="410" y2="150" stroke="#264653" stroke-width="2"/>
+          <!-- Bars showing monthly revenue -->
+          <rect class="chart-bar b1" x="50" y="135" width="34" height="15" fill="#94d2bd" rx="2"/>
+          <rect class="chart-bar b2" x="110" y="118" width="34" height="32" fill="#0a9396" rx="2"/>
+          <rect class="chart-bar b3" x="170" y="92" width="34" height="58" fill="#005f73" rx="2"/>
+          <rect class="chart-bar b4" x="230" y="70" width="34" height="80" fill="#f4a261" rx="2"/>
+          <rect class="chart-bar b5" x="290" y="48" width="34" height="102" fill="#ee6c4d" rx="2"/>
+          <rect class="chart-bar b6" x="350" y="28" width="34" height="122" fill="#e63946" rx="2"/>
+          <!-- Trending line on top of bars -->
+          <polyline class="chart-line" points="67,140 127,128 187,104 247,82 307,62 367,38" fill="none" stroke="#003049" stroke-width="2.5" stroke-linejoin="round"/>
+          <!-- Dots at each data point -->
+          <circle class="chart-dot d1" cx="67" cy="140" r="4" fill="#003049"/>
+          <circle class="chart-dot d2" cx="127" cy="128" r="4" fill="#003049"/>
+          <circle class="chart-dot d3" cx="187" cy="104" r="4" fill="#003049"/>
+          <circle class="chart-dot d4" cx="247" cy="82" r="4" fill="#003049"/>
+          <circle class="chart-dot d5" cx="307" cy="62" r="4" fill="#003049"/>
+          <circle class="chart-dot d6" cx="367" cy="38" r="5" fill="#e63946" stroke="#fff" stroke-width="2"/>
+          <!-- X-axis month labels -->
+          <text x="67" y="166" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">M1</text>
+          <text x="127" y="166" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">M3</text>
+          <text x="187" y="166" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">M5</text>
+          <text x="247" y="166" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">M7</text>
+          <text x="307" y="166" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">M9</text>
+          <text x="367" y="166" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#7a8a9a">M12</text>
+        </svg>
       </div>
     </div>
   </div>
@@ -2894,69 +3001,106 @@ section{position:relative}
 <section class="section-pad contact-section" id="contact">
   <div class="container">
     <div class="section-head fade-in">
-      <span class="script">Let's chat</span>
-      <h2>Plan Your Oahu Trip With Us</h2>
-      <p>Got a question about an attraction? Want help mapping out your week? Drop us a line and we'll help you plan smart.</p>
+      <span class="script">Work with us</span>
+      <h2>Advertise On Attractions Oahu</h2>
+      <p>Reach travel-intent Hawaii visitors without a bloated ad network. Direct placement on Attractions Oahu and our wider Hawaii travel network — restaurants, dive shops, real estate, tour operators welcome.</p>
+    </div>
+
+    <!-- Click-to-call strip -->
+    <div class="form-call-strip fade-in">
+      <span class="ctc-label">Prefer to talk?</span>
+      <a href="tel:+18004818638" class="ctc-btn" aria-label="Call Eye To Ad Media at 1-800-481-8638">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call 1-800-481-8638
+      </a>
+      <span class="ctc-label">or email <a href="mailto:sales@eyetoad.com" style="color:var(--lagoon);font-weight:600">sales@eyetoad.com</a></span>
     </div>
 
     <form class="contact-form fade-in"
           action="https://formsubmit.co/sales@eyetoad.com"
           method="POST"
           id="contactForm">
-      <input type="hidden" name="_subject" value="New Attractions Oahu Inquiry">
+      <input type="hidden" name="_subject" value="Advertising Inquiry — attractionsoahu.com (home)">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.attractionsoahu.com/?submitted=1">
-      <input type="hidden" name="_source" value="attractionsoahu.com">
+      <input type="hidden" name="_next" value="https://www.attractionsoahu.com/?inquiry=received">
+      <input type="hidden" name="_source" value="attractionsoahu.com home — advertise form">
 
-      <!-- Honeypot field -->
+      <!-- Honeypot field (spam protection) -->
       <div class="honeypot-field" aria-hidden="true">
         <label for="hp_field">Don't fill this out if you're human</label>
         <input type="text" name="_honey" id="hp_field" tabindex="-1" autocomplete="off">
       </div>
 
-      <!-- Time-trap token -->
+      <!-- Time-trap token (spam protection) -->
       <input type="hidden" name="_time_token" id="timeToken" value="">
 
       <div class="form-row">
         <div class="form-field">
           <label for="name">Your Name</label>
-          <input type="text" name="name" id="name" required placeholder="Aloha, I'm…">
+          <input type="text" name="name" id="name" required placeholder="Jane Aloha">
         </div>
         <div class="form-field">
-          <label for="email">Email Address</label>
-          <input type="email" name="email" id="email" required placeholder="you@email.com">
+          <label for="business">Business Name</label>
+          <input type="text" name="business" id="business" required placeholder="Mauka Tours LLC">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-field">
-          <label for="phone">Phone (optional)</label>
-          <input type="tel" name="phone" id="phone" placeholder="(555) 123-4567">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" required placeholder="you@business.com">
         </div>
         <div class="form-field">
-          <label for="interest">I'm Most Interested In</label>
-          <select name="interest" id="interest">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" name="phone" id="phone" placeholder="(808) 555-0123">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="industry">Industry</label>
+          <select name="industry" id="industry" required>
             <option value="">Choose one…</option>
-            <option>Beaches &amp; snorkeling</option>
-            <option>Hiking &amp; adventure</option>
-            <option>History &amp; culture</option>
-            <option>Food &amp; nightlife</option>
-            <option>Family-friendly activities</option>
-            <option>Luxury / romance</option>
+            <option>Hotel / Resort</option>
+            <option>Restaurant</option>
+            <option>Tour Operator / Activity</option>
+            <option>Dive / Snorkel Shop</option>
+            <option>Real Estate / Vacation Rental</option>
+            <option>Transportation</option>
+            <option>Retail / Shop</option>
             <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="budget">Monthly Ad Budget</label>
+          <select name="budget" id="budget" required>
+            <option value="">Choose range…</option>
+            <option>Under $250 / mo</option>
+            <option>$250 – $500 / mo</option>
+            <option>$500 – $1,000 / mo</option>
+            <option>$1,000 – $2,500 / mo</option>
+            <option>$2,500+ / mo</option>
+            <option>One-time campaign</option>
           </select>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-field full">
-          <label for="message">Tell Us About Your Trip</label>
-          <textarea name="message" id="message" required placeholder="When are you visiting, who's coming with you, what's on your wish list?"></textarea>
+          <label for="website">Your Website (optional)</label>
+          <input type="url" name="website" id="website" placeholder="https://yourbusiness.com">
         </div>
       </div>
 
-      <button type="submit">Send My Aloha</button>
+      <div class="form-row">
+        <div class="form-field full">
+          <label for="message">What Are You Trying To Achieve?</label>
+          <textarea name="message" id="message" required placeholder="Tell us about your business, ideal customer and what success looks like. We'll send pricing options within 24 hours."></textarea>
+        </div>
+      </div>
+
+      <button type="submit">Send Advertising Inquiry</button>
     </form>
   </div>
 </section>
