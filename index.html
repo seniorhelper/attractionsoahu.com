@@ -102,135 +102,413 @@ PUBLISHER: Eye To Ad Media (Denver-based digital marketing agency specializing i
      ============================================================ -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://www.attractionsoahu.com/#website",
+   "url": "https://www.attractionsoahu.com/",
+   "name": "Attractions Oahu",
+   "description": "Insider guide to the best attractions, beaches, hikes and things to do on Oahu, Hawaii.",
+   "inLanguage": "en-US",
+   "publisher": {
+    "@id": "https://www.attractionsoahu.com/#publisher"
+   },
+   "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.attractionsoahu.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+   }
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://www.attractionsoahu.com/#publisher",
+   "name": "Attractions Oahu",
+   "url": "https://www.attractionsoahu.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.attractionsoahu.com/images/attractions-oahu-logo.png",
+    "width": 600,
+    "height": 200
+   },
+   "parentOrganization": {
+    "@type": "Organization",
+    "name": "Eye To Ad Media",
+    "url": "https://www.eyetoad.com"
+   },
+   "sameAs": []
+  },
+  {
+   "@type": "TouristDestination",
+   "@id": "https://www.attractionsoahu.com/#destination",
+   "name": "Oahu, Hawaii",
+   "description": "Oahu is the third-largest Hawaiian island and the cultural heart of Hawaii. Visitors come for the beaches, hikes, surfing, snorkeling, Pearl Harbor, Waikiki, the North Shore and authentic Polynesian culture.",
+   "url": "https://www.attractionsoahu.com/",
+   "image": "https://www.attractionsoahu.com/images/oahu-attractions.jpg",
+   "touristType": [
+    "Families",
+    "Couples",
+    "Solo Travelers",
+    "Adventure Travelers",
+    "History Buffs",
+    "Surfers",
+    "Divers",
+    "Snorkelers"
+   ],
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 21.4389,
+    "longitude": -158.0001
+   },
+   "includesAttraction": [
     {
-      "@type": "WebSite",
-      "@id": "https://www.attractionsoahu.com/#website",
-      "url": "https://www.attractionsoahu.com/",
-      "name": "Attractions Oahu",
-      "description": "Insider guide to the best attractions, beaches, hikes and things to do on Oahu, Hawaii.",
-      "inLanguage": "en-US",
-      "publisher": {"@id": "https://www.attractionsoahu.com/#publisher"},
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.attractionsoahu.com/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+     "@type": "TouristAttraction",
+     "name": "Waikiki Beach",
+     "url": "https://www.attractionsoahu.com/#waikiki"
     },
     {
-      "@type": "Organization",
-      "@id": "https://www.attractionsoahu.com/#publisher",
-      "name": "Attractions Oahu",
-      "url": "https://www.attractionsoahu.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.attractionsoahu.com/images/attractions-oahu-logo.png",
-        "width": 600,
-        "height": 200
-      },
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Eye To Ad Media",
-        "url": "https://www.eyetoad.com"
-      },
-      "sameAs": []
+     "@type": "TouristAttraction",
+     "name": "Diamond Head State Monument",
+     "url": "https://www.attractionsoahu.com/#diamond-head"
     },
     {
-      "@type": "TouristDestination",
-      "@id": "https://www.attractionsoahu.com/#destination",
-      "name": "Oahu, Hawaii",
-      "description": "Oahu is the third-largest Hawaiian island and the cultural heart of Hawaii. Visitors come for the beaches, hikes, surfing, snorkeling, Pearl Harbor, Waikiki, the North Shore and authentic Polynesian culture.",
-      "url": "https://www.attractionsoahu.com/",
-      "image": "https://www.attractionsoahu.com/images/oahu-attractions.jpg",
-      "touristType": ["Families","Couples","Solo Travelers","Adventure Travelers","History Buffs","Surfers","Divers","Snorkelers"],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 21.4389,
-        "longitude": -158.0001
-      },
-      "includesAttraction": [
-        {"@type":"TouristAttraction","name":"Waikiki Beach","url":"https://www.attractionsoahu.com/#waikiki"},
-        {"@type":"TouristAttraction","name":"Diamond Head State Monument","url":"https://www.attractionsoahu.com/#diamond-head"},
-        {"@type":"TouristAttraction","name":"Pearl Harbor National Memorial","url":"https://www.attractionsoahu.com/#pearl-harbor"},
-        {"@type":"TouristAttraction","name":"Hanauma Bay Nature Preserve","url":"https://www.attractionsoahu.com/#hanauma-bay"},
-        {"@type":"TouristAttraction","name":"North Shore","url":"https://www.attractionsoahu.com/#north-shore"},
-        {"@type":"TouristAttraction","name":"Kualoa Ranch","url":"https://www.attractionsoahu.com/#kualoa"},
-        {"@type":"TouristAttraction","name":"Polynesian Cultural Center","url":"https://www.attractionsoahu.com/#pcc"},
-        {"@type":"TouristAttraction","name":"Lanikai Beach","url":"https://www.attractionsoahu.com/#lanikai"},
-        {"@type":"TouristAttraction","name":"Haleiwa Town","url":"https://www.attractionsoahu.com/#haleiwa"},
-        {"@type":"TouristAttraction","name":"Koko Head Crater","url":"https://www.attractionsoahu.com/#koko-head"}
-      ]
+     "@type": "TouristAttraction",
+     "name": "Pearl Harbor National Memorial",
+     "url": "https://www.attractionsoahu.com/#pearl-harbor"
     },
     {
-      "@type": "WebPage",
-      "@id": "https://www.attractionsoahu.com/#webpage",
-      "url": "https://www.attractionsoahu.com/",
-      "name": "Attractions Oahu | Best Things To Do & Places To Visit On Oahu Hawaii",
-      "isPartOf": {"@id": "https://www.attractionsoahu.com/#website"},
-      "about": {"@id": "https://www.attractionsoahu.com/#destination"},
-      "primaryImageOfPage": "https://www.attractionsoahu.com/images/attractions-oahu.jpg",
-      "datePublished": "2026-05-11",
-      "dateModified": "2026-05-11",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".speakable-hero",".speakable-intro",".speakable-faq"]
-      }
+     "@type": "TouristAttraction",
+     "name": "Hanauma Bay Nature Preserve",
+     "url": "https://www.attractionsoahu.com/#hanauma-bay"
     },
     {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.attractionsoahu.com/"}
-      ]
+     "@type": "TouristAttraction",
+     "name": "North Shore",
+     "url": "https://www.attractionsoahu.com/#north-shore"
     },
     {
-      "@type": "ItemList",
-      "name": "Top 16 Attractions On Oahu",
-      "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "numberOfItems": 16,
-      "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Waikiki Beach"},
-        {"@type":"ListItem","position":2,"name":"Diamond Head Crater Hike"},
-        {"@type":"ListItem","position":3,"name":"Pearl Harbor & USS Arizona Memorial"},
-        {"@type":"ListItem","position":4,"name":"Hanauma Bay Snorkeling"},
-        {"@type":"ListItem","position":5,"name":"North Shore Beaches"},
-        {"@type":"ListItem","position":6,"name":"Kualoa Ranch Jurassic Tour"},
-        {"@type":"ListItem","position":7,"name":"Polynesian Cultural Center"},
-        {"@type":"ListItem","position":8,"name":"Lanikai Beach & Pillbox Hike"},
-        {"@type":"ListItem","position":9,"name":"Haleiwa Historic Town"},
-        {"@type":"ListItem","position":10,"name":"Koko Head Crater Stairs"},
-        {"@type":"ListItem","position":11,"name":"Dole Plantation"},
-        {"@type":"ListItem","position":12,"name":"Makapuu Lighthouse Trail"},
-        {"@type":"ListItem","position":13,"name":"Manoa Falls"},
-        {"@type":"ListItem","position":14,"name":"Byodo-In Temple"},
-        {"@type":"ListItem","position":15,"name":"Tantalus Lookout (Pu'u Ualaka'a)"},
-        {"@type":"ListItem","position":16,"name":"Iolani Palace"}
-      ]
+     "@type": "TouristAttraction",
+     "name": "Kualoa Ranch",
+     "url": "https://www.attractionsoahu.com/#kualoa"
     },
     {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type":"Question","name":"What are the must-see attractions on Oahu?","acceptedAnswer":{"@type":"Answer","text":"The must-see attractions on Oahu include Waikiki Beach, Diamond Head, Pearl Harbor National Memorial, Hanauma Bay, the North Shore with its famous surf breaks, Kualoa Ranch, the Polynesian Cultural Center, Lanikai Beach and Haleiwa town."}},
-        {"@type":"Question","name":"What is the best time to visit Oahu?","acceptedAnswer":{"@type":"Answer","text":"The best time to visit Oahu is April through May or September through October. You'll get great weather, lower hotel prices and smaller crowds. Winter brings big surf to the North Shore. Summer is busiest with school holidays."}},
-        {"@type":"Question","name":"How many days do I need on Oahu?","acceptedAnswer":{"@type":"Answer","text":"Plan at least 5 to 7 days on Oahu to comfortably see the main attractions. A week gives you time for Waikiki, the North Shore, Pearl Harbor, Hanauma Bay, a hike or two and a luau without feeling rushed."}},
-        {"@type":"Question","name":"What is the best beach on Oahu?","acceptedAnswer":{"@type":"Answer","text":"Lanikai Beach is widely considered the most beautiful beach on Oahu thanks to its powdery white sand and turquoise water. Waimanalo, Waikiki, Sunset Beach and Kailua are also top picks depending on what you're after."}},
-        {"@type":"Question","name":"Where is the best snorkeling on Oahu?","acceptedAnswer":{"@type":"Answer","text":"Hanauma Bay Nature Preserve is the most famous snorkeling spot on Oahu. Sharks Cove on the North Shore, Electric Beach on the leeward coast and Three Tables are also excellent. The North Shore spots are summer-only because of large winter waves."}},
-        {"@type":"Question","name":"Can you swim with dolphins on Oahu?","acceptedAnswer":{"@type":"Answer","text":"Yes. Several licensed tour operators run small-group dolphin swims off the west coast of Oahu. Wild spinner dolphins are present year-round. Always choose a NOAA-compliant operator that respects marine wildlife."}},
-        {"@type":"Question","name":"Is Oahu good for first-time visitors to Hawaii?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Oahu is the best Hawaiian island for first-time visitors. It packs the most variety into one island — beaches, history, hikes, food, nightlife and culture — and it's the most affordable of the main islands."}},
-        {"@type":"Question","name":"Do I need a rental car on Oahu?","acceptedAnswer":{"@type":"Answer","text":"If you plan to leave Waikiki and explore the North Shore, the windward side or Pearl Harbor, a rental car is the easiest option. If you're staying in Waikiki the whole trip, you can manage with the bus, ride-share and tours."}},
-        {"@type":"Question","name":"What is there to do at Pearl Harbor?","acceptedAnswer":{"@type":"Answer","text":"Pearl Harbor has the free Visitor Center and USS Arizona Memorial, plus the Battleship Missouri, the Pearl Harbor Aviation Museum and the USS Bowfin submarine. Reserve the Arizona shuttle tickets well in advance through the National Park Service."}},
-        {"@type":"Question","name":"What hikes should beginners do on Oahu?","acceptedAnswer":{"@type":"Answer","text":"Diamond Head Crater, the Makapuu Lighthouse Trail and the Manoa Falls Trail are all beginner-friendly with rewarding views. Lanikai Pillbox is short but steep. Save Koko Head Stairs and Mount Olomana for experienced hikers only."}},
-        {"@type":"Question","name":"Can I visit other Hawaiian islands from Oahu?","acceptedAnswer":{"@type":"Answer","text":"Yes. Short interisland flights from Honolulu reach Maui, the Big Island, Kauai, Molokai and Lanai in under an hour. Day trips are possible but staying at least one night on another island is far more rewarding."}},
-        {"@type":"Question","name":"How much does an Oahu trip cost?","acceptedAnswer":{"@type":"Answer","text":"A mid-range Oahu trip averages $250 to $400 per person per day, covering hotel, food, rental car and one paid activity. Budget travelers can do it for less by staying in hostels or rentals and eating at food trucks."}},
-        {"@type":"Question","name":"Is Hanauma Bay open every day?","acceptedAnswer":{"@type":"Answer","text":"No. Hanauma Bay is closed on Mondays and Tuesdays to give the reef a rest. Reservations are required on the days it's open and tickets sell out fast, so book online well ahead of your visit."}},
-        {"@type":"Question","name":"What should I pack for an Oahu vacation?","acceptedAnswer":{"@type":"Answer","text":"Pack reef-safe sunscreen, a swimsuit or two, light layers, a rash guard, hiking shoes, water shoes, a snorkel mask if you have one, a daypack and a refillable water bottle. Most everything else you'll need is easy to buy on the island."}},
-        {"@type":"Question","name":"Are there free things to do on Oahu?","acceptedAnswer":{"@type":"Answer","text":"Plenty. Most beaches are free, including Waikiki, Lanikai, Sunset and Waimanalo. The Pearl Harbor Visitor Center, USS Arizona Memorial, Hawaii State Art Museum, Aloha Stadium Swap Meet and Hoomaluhia Botanical Gardens are free or nearly free."}},
-        {"@type":"Question","name":"Can I see whales on Oahu?","acceptedAnswer":{"@type":"Answer","text":"Yes. Humpback whales migrate to Hawaiian waters between December and April. You can spot them from cliffside lookouts like Makapuu and Diamond Head, or book a whale-watching cruise out of Waikiki or Ko Olina."}},
-        {"@type":"Question","name":"What is the North Shore famous for?","acceptedAnswer":{"@type":"Answer","text":"The North Shore is world-famous for big-wave surfing, especially at the Banzai Pipeline, Sunset Beach and Waimea Bay. It's also known for shrimp trucks, shave ice, the historic town of Haleiwa and a laid-back, rural vibe."}},
-        {"@type":"Question","name":"Is Oahu safe for tourists?","acceptedAnswer":{"@type":"Answer","text":"Oahu is generally safe for tourists. The main issue is car break-ins at popular trailheads and beaches, so never leave valuables in your rental car. Ocean safety is the bigger concern — check conditions before you swim and obey lifeguard warnings."}}
-      ]
+     "@type": "TouristAttraction",
+     "name": "Polynesian Cultural Center",
+     "url": "https://www.attractionsoahu.com/#pcc"
+    },
+    {
+     "@type": "TouristAttraction",
+     "name": "Lanikai Beach",
+     "url": "https://www.attractionsoahu.com/#lanikai"
+    },
+    {
+     "@type": "TouristAttraction",
+     "name": "Haleiwa Town",
+     "url": "https://www.attractionsoahu.com/#haleiwa"
+    },
+    {
+     "@type": "TouristAttraction",
+     "name": "Koko Head Crater",
+     "url": "https://www.attractionsoahu.com/#koko-head"
     }
-  ]
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://www.attractionsoahu.com/#webpage",
+   "url": "https://www.attractionsoahu.com/",
+   "name": "Attractions Oahu | Best Things To Do & Places To Visit On Oahu Hawaii",
+   "isPartOf": {
+    "@id": "https://www.attractionsoahu.com/#website"
+   },
+   "about": {
+    "@id": "https://www.attractionsoahu.com/#destination"
+   },
+   "primaryImageOfPage": "https://www.attractionsoahu.com/images/attractions-oahu.jpg",
+   "datePublished": "2026-05-11",
+   "dateModified": "2026-05-11",
+   "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+     ".speakable-hero",
+     ".speakable-intro",
+     ".speakable-faq"
+    ]
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.attractionsoahu.com/"
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "name": "Top 16 Attractions On Oahu",
+   "itemListOrder": "https://schema.org/ItemListOrderAscending",
+   "numberOfItems": 16,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Waikiki Beach"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Diamond Head Crater Hike"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Pearl Harbor & USS Arizona Memorial"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Hanauma Bay Snorkeling"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "North Shore Beaches"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "Kualoa Ranch Jurassic Tour"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "Polynesian Cultural Center"
+    },
+    {
+     "@type": "ListItem",
+     "position": 8,
+     "name": "Lanikai Beach & Pillbox Hike"
+    },
+    {
+     "@type": "ListItem",
+     "position": 9,
+     "name": "Haleiwa Historic Town"
+    },
+    {
+     "@type": "ListItem",
+     "position": 10,
+     "name": "Koko Head Crater Stairs"
+    },
+    {
+     "@type": "ListItem",
+     "position": 11,
+     "name": "Dole Plantation"
+    },
+    {
+     "@type": "ListItem",
+     "position": 12,
+     "name": "Makapuu Lighthouse Trail"
+    },
+    {
+     "@type": "ListItem",
+     "position": 13,
+     "name": "Manoa Falls"
+    },
+    {
+     "@type": "ListItem",
+     "position": 14,
+     "name": "Byodo-In Temple"
+    },
+    {
+     "@type": "ListItem",
+     "position": 15,
+     "name": "Tantalus Lookout (Pu'u Ualaka'a)"
+    },
+    {
+     "@type": "ListItem",
+     "position": 16,
+     "name": "Iolani Palace"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What are the must-see attractions on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The must-see attractions on Oahu include Waikiki Beach, Diamond Head, Pearl Harbor National Memorial, Hanauma Bay, the North Shore with its famous surf breaks, Kualoa Ranch, the Polynesian Cultural Center, Lanikai Beach and Haleiwa town."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the best time to visit Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The best time to visit Oahu is April through May or September through October. You'll get great weather, lower hotel prices and smaller crowds. Winter brings big surf to the North Shore. Summer is busiest with school holidays."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many days do I need on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Plan at least 5 to 7 days on Oahu to comfortably see the main attractions. A week gives you time for Waikiki, the North Shore, Pearl Harbor, Hanauma Bay, a hike or two and a luau without feeling rushed."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the best beach on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Lanikai Beach is widely considered the most beautiful beach on Oahu thanks to its powdery white sand and turquoise water. Waimanalo, Waikiki, Sunset Beach and Kailua are also top picks depending on what you're after."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where is the best snorkeling on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hanauma Bay Nature Preserve is the most famous snorkeling spot on Oahu. Sharks Cove on the North Shore, Electric Beach on the leeward coast and Three Tables are also excellent. The North Shore spots are summer-only because of large winter waves."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can you swim with dolphins on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Several licensed tour operators run small-group dolphin swims off the west coast of Oahu. Wild spinner dolphins are present year-round. Always choose a NOAA-compliant operator that respects marine wildlife."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Oahu good for first-time visitors to Hawaii?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Absolutely. Oahu is the best Hawaiian island for first-time visitors. It packs the most variety into one island — beaches, history, hikes, food, nightlife and culture — and it's the most affordable of the main islands."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a rental car on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "If you plan to leave Waikiki and explore the North Shore, the windward side or Pearl Harbor, a rental car is the easiest option. If you're staying in Waikiki the whole trip, you can manage with the bus, ride-share and tours."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is there to do at Pearl Harbor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pearl Harbor has the free Visitor Center and USS Arizona Memorial, plus the Battleship Missouri, the Pearl Harbor Aviation Museum and the USS Bowfin submarine. Reserve the Arizona shuttle tickets well in advance through the National Park Service."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What hikes should beginners do on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Diamond Head Crater, the Makapuu Lighthouse Trail and the Manoa Falls Trail are all beginner-friendly with rewarding views. Lanikai Pillbox is short but steep. Save Koko Head Stairs and Mount Olomana for experienced hikers only."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I visit other Hawaiian islands from Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Short interisland flights from Honolulu reach Maui, the Big Island, Kauai, Molokai and Lanai in under an hour. Day trips are possible but staying at least one night on another island is far more rewarding."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does an Oahu trip cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A mid-range Oahu trip averages $250 to $400 per person per day, covering hotel, food, rental car and one paid activity. Budget travelers can do it for less by staying in hostels or rentals and eating at food trucks."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Hanauma Bay open every day?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Hanauma Bay is closed on Mondays and Tuesdays to give the reef a rest. Reservations are required on the days it's open and tickets sell out fast, so book online well ahead of your visit."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What should I pack for an Oahu vacation?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Pack reef-safe sunscreen, a swimsuit or two, light layers, a rash guard, hiking shoes, water shoes, a snorkel mask if you have one, a daypack and a refillable water bottle. Most everything else you'll need is easy to buy on the island."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are there free things to do on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Plenty. Most beaches are free, including Waikiki, Lanikai, Sunset and Waimanalo. The Pearl Harbor Visitor Center, USS Arizona Memorial, Hawaii State Art Museum, Aloha Stadium Swap Meet and Hoomaluhia Botanical Gardens are free or nearly free."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I see whales on Oahu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Humpback whales migrate to Hawaiian waters between December and April. You can spot them from cliffside lookouts like Makapuu and Diamond Head, or book a whale-watching cruise out of Waikiki or Ko Olina."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the North Shore famous for?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The North Shore is world-famous for big-wave surfing, especially at the Banzai Pipeline, Sunset Beach and Waimea Bay. It's also known for shrimp trucks, shave ice, the historic town of Haleiwa and a laid-back, rural vibe."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is Oahu safe for tourists?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Oahu is generally safe for tourists. The main issue is car break-ins at popular trailheads and beaches, so never leave valuables in your rental car. Ocean safety is the bigger concern — check conditions before you swim and obey lifeguard warnings."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a reservation for Pearl Harbor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Entry to the Pearl Harbor National Memorial visitor center is free, but tickets for the USS Arizona Memorial program are timed and can run out, so reserve ahead on Recreation.gov (a small booking fee applies). Bags are not allowed inside the memorial site; use a small clear bag or the paid bag storage near the entrance. The Battleship Missouri, Pearl Harbor Aviation Museum and USS Bowfin are separate, paid attractions."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need a reservation to hike Diamond Head?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, if you are not a Hawaii resident. Diamond Head State Monument requires advance reservations for out-of-state visitors, with separate entry and parking fees, booked through the Hawaii State Parks reservation website. Time slots for sunrise and early morning go first, so book as soon as your dates are set."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens at a traditional luau?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A luau is an evening feast with Hawaiian and Polynesian food and entertainment. Expect a buffet or family-style meal that usually includes kalua pig cooked in an underground imu oven, poi and other island dishes, followed by a show of hula and, at many luau, a fire knife dance. Popular luau sell out, so book ahead and arrive early for better seating."
+     }
+    }
+   ]
+  }
+ ]
 }
 </script>
 
@@ -2991,6 +3269,9 @@ section{position:relative}
       <div class="faq-item"><button class="faq-q">Can I see whales on Oahu?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><div class="faq-a-inner">Yes. Humpback whales migrate to Hawaiian waters between December and April. You can spot them from cliffside lookouts like Makapuu and Diamond Head, or book a whale-watching cruise out of Waikiki or Ko Olina. Spinner dolphins are visible year-round.</div></div></div>
       <div class="faq-item"><button class="faq-q">What is the North Shore famous for?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><div class="faq-a-inner">The North Shore is world-famous for big-wave surfing, especially at the Banzai Pipeline, Sunset Beach and Waimea Bay. It's also known for shrimp trucks, shave ice, the historic town of Haleiwa and a laid-back, rural vibe that feels nothing like Waikiki.</div></div></div>
       <div class="faq-item"><button class="faq-q">Is Oahu safe for tourists?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><div class="faq-a-inner">Oahu is generally safe for tourists. The main issue is car break-ins at popular trailheads and beaches, so never leave valuables in your rental car. Ocean safety is the bigger concern — check conditions before you swim and obey lifeguard warnings every single time.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Do I need a reservation for Pearl Harbor?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><div class="faq-a-inner">Entry to the Pearl Harbor National Memorial visitor center is free, but tickets for the USS Arizona Memorial program are timed and can run out, so reserve ahead on Recreation.gov (a small booking fee applies). Bags are not allowed inside the memorial site; use a small clear bag or the paid bag storage near the entrance. The Battleship Missouri, Pearl Harbor Aviation Museum and USS Bowfin are separate, paid attractions.</div></div></div>
+      <div class="faq-item"><button class="faq-q">Do I need a reservation to hike Diamond Head?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><div class="faq-a-inner">Yes, if you are not a Hawaii resident. Diamond Head State Monument requires advance reservations for out-of-state visitors, with separate entry and parking fees, booked through the Hawaii State Parks reservation website. Time slots for sunrise and early morning go first, so book as soon as your dates are set.</div></div></div>
+      <div class="faq-item"><button class="faq-q">What happens at a traditional luau?<span class="faq-toggle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><div class="faq-a-inner">A luau is an evening feast with Hawaiian and Polynesian food and entertainment. Expect a buffet or family-style meal that usually includes kalua pig cooked in an underground imu oven, poi and other island dishes, followed by a show of hula and, at many luau, a fire knife dance. Popular luau sell out, so book ahead and arrive early for better seating.</div></div></div>
     </div>
   </div>
 </section>
@@ -3013,17 +3294,15 @@ section{position:relative}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Call 1-800-481-8638
       </a>
-      <span class="ctc-label">or email <a href="mailto:sales@eyetoad.com" style="color:var(--lagoon);font-weight:600">sales@eyetoad.com</a></span>
+      <span class="ctc-label">or <a class="eml" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=" data-s="Advertising — attractionsoahu.com" href="#contactForm" style="color:var(--lagoon);font-weight:600">email us</a></span>
     </div>
 
-    <form class="contact-form fade-in"
-          action="https://formsubmit.co/sales@eyetoad.com"
+    <form class="contact-form fade-in fs-lead" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20="
           method="POST"
           id="contactForm">
-      <input type="hidden" name="_subject" value="Advertising Inquiry — attractionsoahu.com (home)">
+      <input type="hidden" name="_subject" value="New lead — attractionsoahu.com">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.attractionsoahu.com/?inquiry=received">
       <input type="hidden" name="_source" value="attractionsoahu.com home — advertise form">
 
       <!-- Honeypot field (spam protection) -->
@@ -3101,6 +3380,7 @@ section{position:relative}
       </div>
 
       <button type="submit">Send Advertising Inquiry</button>
+      <p class="fs-status" role="status" aria-live="polite" style="margin-top:12px;font-weight:600;"></p>
     </form>
   </div>
 </section>
@@ -3256,12 +3536,6 @@ document.querySelectorAll('.faq-item').forEach(item=>{
 /* ===== Form: time-trap + honeypot ===== */
 const formStartTime=Date.now();
 document.getElementById('timeToken').value=formStartTime;
-document.getElementById('contactForm').addEventListener('submit',function(e){
-  const elapsed=Date.now()-formStartTime;
-  const hp=document.getElementById('hp_field').value;
-  if(hp.length>0){e.preventDefault();return false}
-  if(elapsed<2500){e.preventDefault();alert('Please take a moment to fill in the form.');return false}
-});
 
 /* ===== BUCKET LIST BUILDER ===== */
 const allAttractions=[
@@ -3275,7 +3549,7 @@ const allAttractions=[
   "Foodland poke bar lunch","Try malasadas at Leonard's Bakery","Kayak to the Mokulua Islands",
   "Hike Lanikai Pillbox at sunrise","Visit Punchbowl Cemetery","Tour Battleship Missouri",
   "Swim under Waimea waterfall","Drive the H-3 freeway","Hike Manana Falls trail",
-  "Pearl Harbor Aviation Museum","Eat at the world's cheapest Michelin star","Surf the North Shore",
+  "Pearl Harbor Aviation Museum","Plate lunch at a local drive-in","Surf the North Shore",
   "Beach day at Waimanalo","Sunset at Spitting Cave","Pick a flower for your hair",
   "Visit Ho'omaluhia Botanical Gardens","Snorkel Electric Beach","Stand-up paddle in Waikiki",
   "Try Spam musubi","Walk the Waikiki Beach Walk","Helicopter tour over Oahu"
@@ -3441,5 +3715,33 @@ renderSource();
 renderList();
 </script>
 
+<script>
+/* Lead form + email plumbing: address assembled at runtime, FormSubmit AJAX */
+(function(){
+  var t0=Date.now();
+  function addr(el){return atob(el.getAttribute('data-a'))+String.fromCharCode(64)+atob(el.getAttribute('data-b'));}
+  var links=document.querySelectorAll('a.eml');
+  for(var k=0;k<links.length;k++){(function(a){var e=addr(a),s=a.getAttribute('data-s');a.href='mailto:'+e+(s?'?subject='+encodeURIComponent(s):'');if(!a.textContent.replace(/\s/g,''))a.textContent=e;})(links[k]);}
+  var forms=document.querySelectorAll('form.fs-lead');
+  for(var n=0;n<forms.length;n++){(function(f){
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var st=f.querySelector('.fs-status');
+      function say(m,ok){if(st){st.textContent=m;st.style.color=ok?'#1d6f4c':'#b13a22';}else{alert(m);}}
+      var hp=f.querySelector('[name="_honey"]');
+      if(hp&&hp.value){return;}
+      if(Date.now()-t0<3500){say('Give the form a moment, then send again.');return;}
+      var req=f.querySelectorAll('[required]');
+      for(var i=0;i<req.length;i++){var r=req[i];var empty=(r.type==='checkbox'||r.type==='radio')?!r.checked:!String(r.value||'').trim();if(empty){say('Please fill in the required fields.');try{r.focus();}catch(e){}return;}}
+      var btn=f.querySelector('[type="submit"]');if(btn)btn.disabled=true;
+      fetch('https://formsubmit.co/ajax/'+addr(f),{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)})
+        .then(function(res){if(!res.ok)throw new Error('bad');return res.json();})
+        .then(function(j){if(j&&(j.success===false||j.success==='false'))throw new Error('bad');say("Sent. We'll get back to you shortly.",true);f.reset();})
+        .catch(function(){say('That did not go through. Please call 1-800-481-8638.');})
+        .then(function(){if(btn)btn.disabled=false;});
+    });
+  })(forms[n]);}
+})();
+</script>
 </body>
 </html>
