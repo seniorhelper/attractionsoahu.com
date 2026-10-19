@@ -1,0 +1,14 @@
+# Attractions Oahu
+
+> Attractions Oahu (attractionsoahu.com) is an independent visitor guide to Oahu, Hawaii: attractions, beaches, snorkeling, hikes and trip planning, with a drag-and-drop bucket-list builder. It is not an official government tourism website.
+
+## Pages
+- [Home](https://attractionsoahu.com/): attractions, beaches, snorkel and dive spots, bucket-list builder, tips and FAQ
+- [Things to do on Oahu](https://attractionsoahu.com/things-to-do/)
+- [Privacy](https://attractionsoahu.com/privacy/)
+
+## Editorial notes
+Hours, prices, reservations, ocean conditions and closures change. Verify with the operator or an official source before you go.
+
+## Primary authoritative source
+https://www.gohawaii.com/islands/oahu

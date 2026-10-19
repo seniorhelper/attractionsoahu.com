@@ -79,4 +79,4 @@ User-agent: ImagesiftBot
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.attractionsoahu.com/sitemap.xml
+Sitemap: https://attractionsoahu.com/sitemap.xml
