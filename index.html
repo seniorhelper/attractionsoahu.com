@@ -1904,16 +1904,21 @@ section{position:relative}
 }
 :focus-visible{outline:3px solid var(--lagoon);outline-offset:3px}
 </style>
+<style id="brand-2026">
+.brand img.brand-logo,header img.brand-logo{display:block;width:280px!important;height:auto!important;max-width:100%!important;filter:none!important}
+.site-header .brand-text{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:768px){.brand img.brand-logo,header img.brand-logo{width:200px!important}}
+</style>
 </head>
 <body>
 
 <!-- ============================================================
      HEADER
      ============================================================ -->
-<header class="site-header" id="siteHeader">
+<header class="site-header scrolled" id="siteHeader">
   <div class="nav-wrap">
     <a href="/" class="brand" aria-label="Attractions Oahu home">
-      <img src="/images/attractions-oahu-logo.png" alt="Attractions Oahu logo" width="50" height="50">
+      <img class="brand-logo" src="/images/brand/attractions-oahu-logo.webp" alt="Attractions Oahu logo" width="560" height="280">
       <span class="brand-text">Attractions Oahu</span>
     </a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
@@ -3485,7 +3490,7 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
 
 /* ===== Header scroll state ===== */
 const header=document.getElementById('siteHeader');
-const onScroll=()=>{header.classList.toggle('scrolled',window.scrollY>40)};
+const onScroll=()=>{header.classList.add('scrolled')};
 window.addEventListener('scroll',onScroll,{passive:true});
 onScroll();
 
