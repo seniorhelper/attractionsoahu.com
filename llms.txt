@@ -12,3 +12,4 @@ Hours, prices, reservations, ocean conditions and closures change. Verify with t
 
 ## Primary authoritative source
 https://www.gohawaii.com/islands/oahu
+- Get featured: https://attractionsoahu.com/get-featured/ (free basic listing; Featured $29/month; paid placements are labeled Featured)

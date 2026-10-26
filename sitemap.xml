@@ -42,4 +42,10 @@
   </url>
 
   <url><loc>https://attractionsoahu.com/privacy/</loc><lastmod>2026-10-11</lastmod></url>
+  <url>
+    <loc>https://attractionsoahu.com/get-featured/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
